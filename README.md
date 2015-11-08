@@ -1,8 +1,8 @@
 # Incuba - A project By Techynaf
 
-This boilerplate is here to give you a starting point for your meteor projects, with a console tool to ease up some tasks. Essential atmosphere packages are included to give you features like routing and collection schemas out-of-the-box.  
+Guide you to the right path
 
-<!-- toc -->
+
 ## Team
 
 * Sakib Hasan
@@ -10,4 +10,4 @@ This boilerplate is here to give you a starting point for your meteor projects, 
 * Shehabul Hossain Sunny
 * Tahsin Alam Tamim
 * Tarequl Hasan Robin
-<!-- toc stop -->
+
