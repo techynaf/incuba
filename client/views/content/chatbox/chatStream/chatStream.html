@@ -1,0 +1,22 @@
+<template name="chatStream">
+    {{#each chat_messages}}
+        {{#if isMentor sender}}
+            <div class="alert alert-success">
+                {{text}}<br>{{time}}
+            </div>
+        {{/if}}
+
+        {{#if isUser sender}}
+            <div class="alert alert-info">
+                {{text}}<br>{{time}}
+            </div>
+        {{/if}}
+
+        {{#if isSite sender}}
+            <div class="alert alert-danger">
+                {{text}}<br>{{time}}
+            </div>
+        {{/if}}
+
+    {{/each}}
+</template>
