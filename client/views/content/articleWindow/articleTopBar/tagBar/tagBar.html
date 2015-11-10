@@ -1,21 +1,10 @@
 <template name="tagBar">
-    <style>
-
-        /*TODO:: please move this to proper css file. Thanks.*/
-
-        ul#menu {
-            padding: 0;
-        }
-
-        ul#menu li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-    </style>
-    <ul id="menu">
-    {{#each tags}}
-        <li><a href="/html/default.asp">{{tag}}</a></li>
-    {{/each}}
-    </ul>
+    <div class="well" id="tagBar">
+        <span class="label label-default">Default</span>
+        <span class="label label-primary">Primary</span>
+        <span class="label label-success">Success</span>
+        <span class="label label-info">Info</span>
+        <span class="label label-warning">Warning</span>
+        <span class="label label-danger">Danger</span>
+    </div>
 </template>
