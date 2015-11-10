@@ -1,29 +1,48 @@
-#footer {
-	min-height: 30px;
-	background-color: #2c3e50;
+#articleContent{
+	height: 622px;
+	overflow: scroll;
 }
 
-#header {
-	min-height: 80px;
-	background-color: #2c3e50;
+#chatBox {
+	height: 678px;
+	overflow: scroll;
 }
 
-h2,h6 {
-	color: white;
+#searchBar,#footer{
+	padding: 10px;
 }
 
-h4 {
-	color:	#ecf0f1;
+#tagBar{
+	padding: 17px;
 }
 
-a {
-	color: #bdc3c7;
+#commentBox{
+	position: absolute;
+	bottom : -19px;
+	padding: 10px;
+	right: 15px;
+	left: 15px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px; 
 }
 
-#articleTopBar {
-	background-color: #34495e;
+.alert{
+	padding: 8px;
+	border-radius: 12px;
 }
 
-#chatbox {
-	background-color: #34495e;
+#footer{
+	margin-bottom: -10px;
+	margin-top: 8px;
 }
+
+.alert#admin_msg,#bot_msg{
+	width: 80%;
+	float: left;
+}
+
+.alert#user_msg{
+	width: 80%;
+	float: right;
+}
+
