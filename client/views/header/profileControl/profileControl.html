@@ -2,7 +2,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href="#">Button 1</a></li>
+            {{#if isInRole 'writer'}}
+                <li id="postArticle"><a href="/write">Post Article</a></li>
+            {{/if}}
             <li><a href="#">Button 2</a></li>
             <li><a href="#">Button 3</a></li>
         </ul>

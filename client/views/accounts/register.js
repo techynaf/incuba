@@ -1,5 +1,5 @@
 Template.register.events({
-    'submit form': function (event) {
+    'submit #registration': function (event) {
         event.preventDefault();
         var emailVar = event.target.registerEmail.value;
         var passwordVar = event.target.registerPassword.value;
@@ -20,10 +20,11 @@ Template.register.events({
         }
 
         if(isValidPassword(passwordVar)){
-            Accounts.createUser({email: emailVar, password: passwordVar, profile: profileVar}, function(err){
+            id = Accounts.createUser({email: emailVar, password: passwordVar, profile: profileVar}, function(err){
                 if(err){
                     Session.set('errorMSG', err.reason);
                     Session.set('successMSG', null);
+
                 }else{
                     console.log(Meteor.userId());
                     Session.set('successMSG', 'Registration Successful!');
@@ -31,10 +32,24 @@ Template.register.events({
                 }
             });
 
+
         }else{
             Session.set('errorMSG', 'Password too short.');
         }
     },
+    'submit #login': function (event) {
+        event.preventDefault();
+        var emailVar = event.target.loginEmail.value;
+        var passwordVar = event.target.loginPassword.value;
+
+        Meteor.loginWithPassword(emailVar,passwordVar,function(err){
+            if(Meteor.user()){
+                //TODO: close the modal
+            }else{
+                Session.set('errorMSG',err.reason);
+            }
+        });
+    }
 });
 
 

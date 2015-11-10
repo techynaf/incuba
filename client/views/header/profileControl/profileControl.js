@@ -19,5 +19,11 @@ Template['profileControl'].events({
     'click #logoutButton': function(event){
         event.preventDefault();
         Meteor.logout();
+    },
+
+    'click #postArticle': function(event){
+        //event.preventDefault();
+        console.log("posting article");
     }
+
 });
