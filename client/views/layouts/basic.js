@@ -1,14 +1,9 @@
 Session.setDefault('showLogin', false)
 
 Template['basicLayout'].helpers({
-    currentUser: function() {
-        return Meteor.user().emails[0].address;
-    },
-
     isTrue: function() {
         return Session.get('showLogin');
     }
-
 });
 
 Template['basicLayout'].events({

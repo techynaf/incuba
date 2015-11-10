@@ -35,5 +35,4 @@ ejson
 spacebars
 check
 twbs:bootstrap
-useraccounts:bootstrap
-useraccounts:iron-routing
+accounts-ui
