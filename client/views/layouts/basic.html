@@ -1,14 +1,29 @@
 <template name="basicLayout">
+
+    {{currentUser}}
+    <button class="button">Login</button>
+    <button class="button2">hide</button>
+    <button class="button3">Logout</button>
+
     <div>
         {{> header}}
     </div>
 
     <div>
+        {{#if isTrue}}
+            <div>
+                <!--{{> atForm state='signIn'}}-->
+                {{> atForm }}
+            </div>
+
+        {{/if}}
+
         {{> content}}
     </div>
 
     <div>
         {{> footer}}
     </div>
+
 
 </template>
