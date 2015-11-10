@@ -1,0 +1,33 @@
+<template name="profile">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ProfileData.name}}</h1>
+                <h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>
+                <img src="{{ProfileData.profilePicture}}">
+                <h3>
+                    Education
+                </h3>
+                {{#each ProfileData.education}}
+                    <div style="border: 1px solid black; padding: 50px;">
+                        <h3>{{schoolName}}</h3>
+                        <h5>{{time}}</h5>
+                        <h5>{{program}}</h5>
+                    </div>
+                {{/each}}
+
+                <h3>
+                    Works
+                </h3>
+                {{#each ProfileData.works}}
+                    <div style="border: 1px solid black; padding: 50px;">
+                        <h3>{{company}}</h3>
+                        <h5>{{time}}</h5>
+                        <h5>{{designation}}</h5>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
