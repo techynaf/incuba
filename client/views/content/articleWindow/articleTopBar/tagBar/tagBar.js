@@ -1,11 +1,8 @@
 Template['tagBar'].helpers({
     'tags' : function () {
-        return [
-            { 'tag' : 'Creampie'},
-            { 'tag' : 'Glory Hole'},
-            { 'tag' : 'First Time'},
-            { 'tag' : 'Sadia'},
-        ];
+        var query = Articles.find();
+        console.log(query);
+        return query;
     },
 });
 
