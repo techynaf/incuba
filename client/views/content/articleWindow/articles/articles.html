@@ -1,65 +1,24 @@
 <template name="articles">
     <div class="panel panel-default" id="articleContent">
+        {{#each article}}
     	<div class="panel-body">
     		<div class="panel panel-default">
     			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
+					<h3 class="panel-title">{{title}}</h3>
 				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
-			  	</div>
-			  	<div align="right" class="panel-footer">Read More...</div>
-			</div>
+                <p><b>Tags:</b></p>
+                {{#each tags}}
+                <p>{{this}}</p>
+                {{/each}}
+                <p>summary: {{summary}}</p>
+                <p>Created at: {{createdAt}}</p>
 
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
-			  	</div>
-			  	<div align="right" class="panel-footer">Read More...</div>
-			</div>
-
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
-			  	</div>
-			  	<div align="right" class="panel-footer">Read More...</div>
-			</div>
-
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
-			  	</div>
-			  	<div align="right" class="panel-footer">Read More...</div>
-			</div>
-
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
-			  	</div>
-			  	<div align="right" class="panel-footer">Read More...</div>
-			</div>
-
-			<div class="panel panel-default">
-    			<div class="panel-heading">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-			  	<div class="panel-body">
-			    	The quick brown fox jumps over the lazy dog
+                <div class="panel-body">
+			    	{{body}}
 			  	</div>
 			  	<div align="right" class="panel-footer">Read More...</div>
 			</div>
     	</div>
+        {{/each}}
     </div>
 </template>
