@@ -16,4 +16,5 @@ Template['tagBar'].helpers({
 }});
 
 Template['tagBar'].events({
+
 });

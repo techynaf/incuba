@@ -1,8 +1,8 @@
 <template name="tagBar">
     <div class="well" id="tagBar">
-
+        <span id="all_tag_button" class="label label-default">all</span>
         {{#each tags}}
-        <span class="label label-default">{{this}}</span>
+        <span id="tag_button" class="label label-default">{{this}}</span>
         {{/each}}
     </div>
 </template>
