@@ -1,0 +1,13 @@
+<template name="singleArticle">
+    {{article.title}}
+    <p><b>Tags:</b></p>
+    {{#each article.tags}}
+        <p>{{this}}</p>
+    {{/each}}
+    <p>summary: {{article.summary}}</p>
+    <p>Created at: {{article.createdAt}}</p>
+
+    <div class="panel-body">
+        {{article.body}}
+    </div>
+</template>

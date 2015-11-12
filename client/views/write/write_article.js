@@ -5,7 +5,6 @@ Template.write_article.events({
         var body = event.target.body.value;
         var summary = event.target.summary.value;
         var tags = event.target.tag.value.split(',');
-        console.log(tags);
         Articles.insert({
             title: title,
             summary: summary,
@@ -15,7 +14,6 @@ Template.write_article.events({
             slug: title.replace(/\s+/g, '-').toLowerCase() + '-' + UI._globalHelpers.randomString(10),
             author: Meteor.user()._id
         });
-
         console.log("article added");
     }
 });
