@@ -3,7 +3,11 @@ Template.register.events({
         event.preventDefault();
         var emailVar = event.target.registerEmail.value;
         var passwordVar = event.target.registerPassword.value;
-        var profileVar =  {"full_name" : event.target.registerFullName.value};
+        var profileVar =  {
+            "full_name" : event.target.registerFullName.value,
+            "slug"      : event.target.registerFullName.value.replace(/\s+/g, '-').toLowerCase()+ '-' + UI._globalHelpers.randomString(10)
+
+        };
         console.log("Form submitted.");
 
         var trimInout = function(val){
@@ -59,3 +63,13 @@ Template.register.helpers({
     successMSG: function(){ return Session.get('successMSG')}
 });
 
+//
+//function randomString(len, charSet) {
+//    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//    var randomString = '';
+//    for (var i = 0; i < len; i++) {
+//        var randomPoz = Math.floor(Math.random() * charSet.length);
+//        randomString += charSet.substring(randomPoz,randomPoz+1);
+//    }
+//    return randomString;
+//}
