@@ -7,6 +7,16 @@ Template['profileControl'].helpers({
         }else{
             return null;
         }
+    },
+    'slug': function(){
+        var slug = "";
+        if(Accounts.user()){
+            slug = Accounts.user().profile.slug;
+            return slug;
+        }else{
+            return null;
+        }
+
     }
 });
 
