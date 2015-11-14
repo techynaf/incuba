@@ -1,10 +1,18 @@
+html, body {
+	height: 100%;
+}
+
+#main_body{
+	height: 85%;
+}
+
 #articleContent{
-	height: 622px;
+	height: 100%;
 	overflow: scroll;
 }
 
-#chatBox {
-	height: 678px;
+#chatBox{
+	height: 100%;
 	overflow: scroll;
 }
 
