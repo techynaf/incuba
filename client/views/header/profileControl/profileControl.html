@@ -5,17 +5,17 @@
             {{#if isInRole 'writer'}}
                 <li id="postArticle"><a href="/write">Post Article</a></li>
             {{/if}}
-            <li><a href="#">Button 2</a></li>
-            <li><a href="#">Button 3</a></li>
+            <li><a href="#" style="color:black">Button 2</a></li>
+            <li><a href="#" style="color:black">Button 3</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-                <li><a id="logoutButton" href="#">Logout</a></li>
+                <li><a id="logoutButton" href="#" style="color:black">Logout</a></li>
             {{else}}
-                <li><a id="loginButton" href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Login</a></li>
+                <li><a id="loginButton" href="#" style="color:black" data-toggle="modal" data-target=".bs-example-modal-sm">Login</a></li>
             {{/if}}
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
+                <a href="#" style="color:black" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
                     {{full_name}}
                 </a>
                 <ul class="dropdown-menu">

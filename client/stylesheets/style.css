@@ -1,5 +1,6 @@
 html, body {
 	height: 100%;
+	background-image: url("background.png");
 }
 
 #main_body{
@@ -8,11 +9,13 @@ html, body {
 
 #articleContent{
 	height: 100%;
+	border: 2px solid #1abc9c;
 	overflow: scroll;
 }
 
 #chatBox{
 	height: 100%;
+	border: 2px solid #1abc9c;
 	overflow: scroll;
 }
 
@@ -32,6 +35,10 @@ html, body {
 	left: 15px;
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px; 
+}
+
+a{
+	color: black;
 }
 
 .alert{
