@@ -1,13 +1,14 @@
+
 Template['searchBar'].helpers({
+    'articles' : function () {
+
+    }
 });
 
 Template['searchBar'].events({
+    "keyup #search-box": _.throttle(function(e) {
+        var text = $(e.target).val().trim();
+        Session.set('searchArticle',text);
+    }, 200)
 });
 
-var options = {
-    keepHistory: 1000 * 60 * 5,
-    localSearch: true
-};
-var fields = ['packageName', 'description'];
-
-PackageSearch = new SearchSource('packages', fields, options);
