@@ -4,20 +4,26 @@
     	<div class="panel-body">
     		<div class="panel panel-default">
     			<div class="panel-heading">
-					<h3 class="panel-title">{{title}}</h3>
+					<h3 class="panel-title">{{articleBody.title}}</h3>
 				</div>
-                <p><b>Tags:</b></p>
-                {{#each tags}}
-                <p>{{this}}</p>
-                {{/each}}
-                <p>summary: {{summary}}</p>
-                <p>Created at: {{createdAt}}</p>
-
                 <div class="panel-body">
+                    <p><b>Tags:</b></p>
+                    {{#each articleBody.tags}}
+                        <p>{{this}}</p>
+                    {{/each}}
+                    <p>summary: {{articleBody.summary}}</p>
+                    <p>body: {{articleBody.body}}</p>
+                    <p>Created at: {{articleBody.createdAt}}</p>
 			    	{{body}}
 			  	</div>
-			  	<div align="right" class="panel-footer">
-                    <a href="/article/{{slug}}">Read More...</a>
+			  	<div  class="panel-footer clearfix">
+                    <div align="left">
+                        <a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>
+                    </div>
+                    <div align="right">
+                        <a href="/article/{{articleBody.slug}}">Read More...</a>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
 			</div>
     	</div>
