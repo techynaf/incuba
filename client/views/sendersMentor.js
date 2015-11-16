@@ -1,8 +1,5 @@
-Template['chatboxMentor'].helpers({
-    'messages' : function () {
-        return getMessage(Session.get("user"));
+Template['sendersMentor'].helpers({
 
-    },
     'users' :function(){
         var uniqueUserArray = getUniqueUsers();
         var hello = [];
@@ -22,31 +19,11 @@ Template['chatboxMentor'].helpers({
             return false;
         }
 
-    },
-
-    'isUserMessage': function (type) {
-        return type === "user"
-    },
-
-    'isMentorMessage': function (type) {
-        return type === "mentor"
-    },
-
-    'isSiteMessage': function (type) {
-        return type === "site"
     }
 });
 
-Template['chatboxMentor'].events({
+Template['sendersMentor'].events({
 
-    "submit form": function(event) {
-        event.preventDefault();
-        var body = event.target.message.value;
-        var to = Session.get("user") ;
-        event.target.message.value = "";
-        Meteor.call('insertMessage', body, to);
-        console.log("Message sent");
-    },
     "click .user" : function(event){
         event.preventDefault();
         var userId= event.currentTarget.id;
@@ -63,15 +40,7 @@ function getUniqueUsers(){
     var groupedDates = _.groupBy(_.pluck(data, 'from'));
     var array = [];
     _.each(_.values(groupedDates), function(dates) {
-       array.push (dates[0]);
+        array.push (dates[0]);
     });
     return array;
-}
-
-function getMessage(userId){
-    //var userFullName = Meteor.users.find({_id:userId}).fetch()[0].profile.full_name;
-    var message = Messages.find({  $or: [ { to: userId }, { from: userId}]}).fetch();
-    //console.log(userFullName);
-
-    return message;
 }

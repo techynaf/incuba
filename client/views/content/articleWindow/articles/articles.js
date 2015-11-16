@@ -40,5 +40,6 @@ function addAuthorToArticle(articles){
             finalAricles.push({articleBody: myDoc, articleAuthor: {name: user[0].profile.full_name, slug: user[0].profile.slug}});
         }
     );
+    console.log(finalAricles);
     return finalAricles;
 }

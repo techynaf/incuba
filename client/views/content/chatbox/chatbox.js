@@ -19,12 +19,13 @@ Template['chatbox'].helpers({
     }
 });
 
+
 Template['chatbox'].events({
 
     "submit form": function(event) {
         event.preventDefault();
         var body = event.target.message.value;
-        var to = 'Ha2EKAz3RG22xZjhf';
+        var to = 'gpngPePSEvFzPuBry';
         event.target.message.value = "";
         Meteor.call('insertMessage', body, to);
         console.log("Message sent");
@@ -32,6 +33,7 @@ Template['chatbox'].events({
     "click #user" : function(event){
         event.preventDefault();
         var userId= event.currentTarget.innerText;
+        Meteor.call('insertMessage', userId);
         Session.set("user",userId);
         console.log(userId);
     }

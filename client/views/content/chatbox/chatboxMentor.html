@@ -1,11 +1,8 @@
 <template name="chatboxMentor">
-    {{#each users}}
-        <p class="user" name="user" id={{_id}}>{{this.profile.full_name}}</p>
-    {{/each}}
+
     <div class="panel panel-default" style="height:100%">
 	  	<div class="panel-body" id="chatBox">
             {{#each messages}}
-
                 {{#if isUserMessage type}}
                     <div class="alert alert-success" role="alert" id="admin_msg">
                         {{body}}

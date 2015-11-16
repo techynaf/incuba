@@ -22,12 +22,18 @@ Meteor.methods({
                 body: message,
                 from: loggedInUser,
                 to: receiver,
-                type: 'user'
+                type: 'user',
+                seen: true
             });
             console.log("Posted as user");
         }
 
+    },
+
+    'seenMessage': function(userId){
+        Messages.update({from:userId }, {$set: {seen: false} },  {multi: true});
     }
+});
     //findArticleWithAuthor: function(){
     //    var articles = Articles.find({},{sort:{createdAt:-1}});
     //    var finalAricles = [];
@@ -41,4 +47,3 @@ Meteor.methods({
     //    console.log(finalAricles);
     //    return finalAricles;
     //}
-});

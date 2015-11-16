@@ -12,7 +12,7 @@ Template.write_article.events({
             body: body,
             createdAt: new Date(),
             slug: title.replace(/\s+/g, '-').toLowerCase() + '-' + UI._globalHelpers.randomString(10),
-            author: Meteor.user()._id
+            author: Meteor.userId()
         });
         console.log("article added");
     }
