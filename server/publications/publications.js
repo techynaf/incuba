@@ -3,7 +3,11 @@ Meteor.publish("articles", function(){
 });
 
 Meteor.publish("messages", function() {
-    return Messages.find();
+    var loggedInUser = this.userId;
+    return Messages.find({  $or: [ { to: loggedInUser }, { from: loggedInUser },
+        { to: "mentor" }, { from: "mentor" }
+    ] });
+    //return Messages.find();
 });
 
 Meteor.publish('authors', function() {

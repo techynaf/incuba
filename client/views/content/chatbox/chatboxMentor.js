@@ -1,9 +1,17 @@
-Template['chatbox'].helpers({
+Template['chatboxMentor'].helpers({
     'messages' : function () {
-        var userId = Meteor.userId();
         console.log(Meteor.userId());
-        return getMessage(userId);
+        return getMessage(Session.get("user"));
 
+    },
+    'users' :function(){
+        var uniqueUserArray = getUniqueUsers();
+        var hello = [];
+        for (key in uniqueUserArray ) {
+            var userFullName = Meteor.users.find({_id: uniqueUserArray[key]}).fetch()[0];
+            hello.push(userFullName);
+        }
+        return hello;
     },
 
     'isUserMessage': function (type) {
@@ -19,21 +27,21 @@ Template['chatbox'].helpers({
     }
 });
 
-Template['chatbox'].events({
+Template['chatboxMentor'].events({
 
     "submit form": function(event) {
         event.preventDefault();
         var body = event.target.message.value;
-        var to = 'Ha2EKAz3RG22xZjhf';
+        var to = Session.get("user") ;
         event.target.message.value = "";
         Meteor.call('insertMessage', body, to);
         console.log("Message sent");
     },
-    "click #user" : function(event){
+    "click .user" : function(event){
         event.preventDefault();
-        var userId= event.currentTarget.innerText;
+        var userId= event.currentTarget.id;
         Session.set("user",userId);
-        console.log(userId);
+        console.log(event.currentTarget.id);
     }
 
 

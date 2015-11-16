@@ -19,7 +19,7 @@ Meteor.startup(function(){
             })
             Meteor.users.update({_id:userId}, {$set: {'emails.0.verified':true}});
             if(userData.roles){
-                Roles.addUsersToRoles(userId,userData.roles);
+                Roles.addUsersToRoles(userId,userData.roles, 'default-group');
             }
         })
     }
