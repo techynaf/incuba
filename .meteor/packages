@@ -37,3 +37,5 @@ check
 twbs:bootstrap
 accounts-ui
 alanning:roles
+workman:meteor-editable
+tarmes:tag-list

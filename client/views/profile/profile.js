@@ -1,10 +1,113 @@
 Template['profile'].helpers({
-    'ProfileData' : function () {
+    'optionsFullName': function () {
+        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Full Name',
+            position: 'right',
+            value: user[0].profile.full_name,
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserInfo", "full_name", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    'optionsAge': function () {
+        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Age',
+            position: 'right',
+            value: user[0].profile.age,
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserInfo", "age", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    'optionsSex': function () {
+        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        if(user[0].profile.sex){
+            value = user[0].profile.sex;
+        }else{
+            value = "Gender";
+        }
+        return {
+            type: 'select',
+            async: true,
+            placeholder: 'Gender',
+            position: 'right',
+            value: value,
+            source: [{value: "Male", text: "Male"}, {value: "Female", text: "Female"}, {value: "Others", text: "Others"}],
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserInfo", "sex", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    'optionsLocation': function () {
+        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        var value;
+        if(user[0].profile.location){
+            value = user[0].profile.location;
+        }else{
+            value = "Your Location";
+        }
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Location',
+            position: 'right',
+            value: value,
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserInfo", "location", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    'intialEducation': function() {
+        var user = Meteor.users.find({}, {'profile.slug': slug}).fetch();
+        //if (user[0].profile.education) {
+            //return user[0].profile.education;
+        return ["SSC kos ki mama?", "na na na ato chodon diyo na"];
+        //}
+    },
+
+    'userPressedEdit': function(){
+        return Session.get('editProfiel-visible');
+    },
+
+    'get_fullName': function(){
+        return Session.get('full_name');
+    },
+
+    'ProfileData': function () {
 
         var userSlug = slug;
-        console.log(userSlug);
         var user =  Meteor.users.find({}, {'profile.slug' : userSlug }).fetch();
-        console.log(user);
+        //console.log(user);
         return user[0];
 
         //return {
@@ -39,4 +142,41 @@ Template['profile'].helpers({
     },
 });
 Template['profile'].events({
+    "click .glyphicon-pencil": function (e) {
+        // Prevent default browser form submit
+        e.preventDefault();
+        $(e.currentTarget).parents('.edit').html("<input type='text' name='"+ $(e.currentTarget).attr("name")+"' value='"+ $(e.currentTarget).attr("current")+"' >");
+    },
+
+    "submit .edit": function (e) {
+        // Prevent default browser form submit
+        e.preventDefault();
+        var fieldname = String($(e.currentTarget).children('input')[0].name);
+        var value = $(e.currentTarget).children('input')[0].value;
+        var result = Meteor.call("updateUserInfo", fieldname, value);
+
+        //var $set = {};
+        //$set['profile.' + fieldname] = value;
+        ////$(e.currentTarget).parents('.edit').html("test");
+        //if(Session.get('full_name')){
+        //    Session.set('full_name', value);
+        //}else{
+        //    Session.set('full_name', value);
+        //}
+        //console.log("===============");
+        //$(e.currentTarget).html("");
+        //console.log("===============");
+        //Meteor.users.update(
+        //    {_id:Meteor.user()._id},
+        //    {$set: $set}
+        //);
+
+
+        // console.log("after update: "+$(e.currentTarget));
+        // $(e.currentTarget).html("<span name=\""+fieldname+"\" current=\""+value+"\" class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>");
+        // $(e.currentTarget).html(Meteor.render('profile'));
+        // console.log("done");
+    }
 });
+
+Session.set('full_name', '');
