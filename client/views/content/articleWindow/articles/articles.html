@@ -34,7 +34,8 @@
     {{#each article}}
     <div class="vertical-timeline-block">
         <div class="vertical-timeline-icon">
-            <img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg">
+            <a href="/profile/{{articleAuthor.slug}}"><img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg"></a>
+            
         </div>
 
         <div class="vertical-timeline-content">
@@ -43,10 +44,20 @@
             </div>
             <div class="col-lg-8">
                 <h2>{{articleBody.title}}</h2>
-                <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products. Below please find the current status of the sale <a href="#">Read more...</a>
+                <p>Tag: {{#each articleBody.tags}} 
+                            {{this}}
+                        {{/each}}
+                        </p>
+                <p>{{articleBody.summary}}
+                <a href="/article/{{articleBody.slug}}">Read more...</a>
                 </p>
+                <p>
+                    <a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>
+                </p>
+
+               
                 <span class="vertical-date">
-                    <small>Dec 24, 2015</small>
+                    <small>{{articleBody.createdAt}}</small>
                 </span>
             </div>
         </div>

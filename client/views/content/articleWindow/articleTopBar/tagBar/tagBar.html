@@ -6,24 +6,17 @@
         <!--{{/each}}-->
     <!--</div>-->
 
+     <span id="all_tag_button">
+        <a style="color:black" href="#" class="btn btn-sm btn-primary">
+            all
+        </a>
+    </span>
 
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        All
-    </a>
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        Accomplishment
-    </a>
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        kolabagan
-    </a>
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        Gulshan
-    </a>
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        Banani
-    </a>
-    <a style="color:black" href="#" class="btn btn-sm btn-primary">
-        Uttara
-    </a>
-
+    {{#each tags}}  
+        <span id="tag_button">
+            <a style="color:black" href="#" class="btn btn-sm btn-primary">
+                {{this}}
+            </a>
+        </span>
+    {{/each}}
 </template>
