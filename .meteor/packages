@@ -10,7 +10,6 @@ accounts-password
 aldeed:collection2
 iron:router
 raix:handlebar-helpers
-matteodem:easy-security
 audit-argument-checks
 fastclick
 zimme:iron-router-active
@@ -37,3 +36,5 @@ check
 twbs:bootstrap
 accounts-ui
 alanning:roles
+workman:meteor-editable
+tarmes:tag-list

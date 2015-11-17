@@ -1,0 +1,32 @@
+<template name="chatboxMentor">
+
+    <div class="panel panel-default" style="height:100%">
+	  	<div class="panel-body" id="chatBox">
+            {{#each messages}}
+                {{#if isUserMessage type}}
+                    <div class="alert alert-success" role="alert" id="admin_msg">
+                        {{body}}
+                    </div>
+                {{/if}}
+
+                {{#if isMentorMessage type}}
+                    <div class="alert alert-info" role="alert" id="user_msg">
+                        {{body}}
+                    </div>
+                {{/if}}
+
+                {{#if isSiteMessage type}}
+                    <div class="alert alert-warning" role="alert" id="user_msg">
+                        {{body}}
+                    </div>
+                {{/if}}
+            {{/each}}
+
+    		<form>
+    			<div class="well" id="commentBox" style="background-color:#1abc9c">
+    				<input class="form-control" name="message" placeholder="Type your message here...">
+    			</div>
+	    	</form>
+	  	</div>
+	</div>
+</template>

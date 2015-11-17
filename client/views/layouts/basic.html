@@ -1,23 +1,16 @@
 <template name="basicLayout">
-        <!--{{#if currentUser}}-->
-            <!--<p>You're logged in.</p>-->
-            <!--{{>logout}}-->
-        <!--{{else}}-->
-            <!--{{> register}}-->
-            <!--{{> login}}-->
-        <!--{{/if}}-->
+    <body class="mini-navbar">
+        <div id="wrapper">
+            <div id="page-wrapper">
+                {{> header}}
 
-    <div>
-        {{> header}}
-    </div>
-
-    
-        {{> yield}}
-    
-
-    <div>
-        {{> footer}}
-    </div>
+                    {{> yield}}
 
 
+                <div>
+                    {{> footer}}
+                </div>
+            </div>
+        </div>
+    </body>
 </template>

@@ -1,20 +1,29 @@
 <template name="profile">
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-md-12">
-                <h1>{{ProfileData.profile.full_name}}</h1>
-                <h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>
+                <h1>{{> m_editable optionsFullName }}</h1>
+
+                <h3>
+                    {{> m_editable optionsAge }}, {{> m_editable optionsSex }}, {{> m_editable optionsLocation }}
+                </h3>
+
+                <!--<h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>-->
                 <img src="{{ProfileData.profilePicture}}">
                 <h3>
                     Education
                 </h3>
-                {{#each ProfileData.education}}
-                    <div style="border: 1px solid black; padding: 50px;">
-                        <h3>{{schoolName}}</h3>
-                        <h5>{{time}}</h5>
-                        <h5>{{program}}</h5>
-                    </div>
-                {{/each}}
+
+                {{> tagList id="education" defaultItems=intialEducation}}
+                <!---->
+                <!--{{#each ProfileData.education}}-->
+                    <!--<div style="border: 1px solid black; padding: 50px;">-->
+                        <!--<h3>{{schoolName}}</h3>-->
+                        <!--<h5>{{time}}</h5>-->
+                        <!--<h5>{{program}}</h5>-->
+                    <!--</div>-->
+                <!--{{/each}}-->
 
                 <h3>
                     Works
@@ -26,7 +35,50 @@
                         <h5>{{designation}}</h5>
                     </div>
                 {{/each}}
+
+
+                <!--&lt;!&ndash; Edit Template &ndash;&gt;-->
+                <!--{{#with userPressedEdit}}-->
+                    <!--<form class="editProfileForm" role="form">-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Name:</label>-->
+                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.full_name}}" placeholder="Enter your full name" name="name">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Age:</label>-->
+                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.age}}" placeholder="Enter your age" name="age">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Sex:</label>-->
+                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.sex}}" placeholder="Enter your gender" name="sex">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Location:</label>-->
+                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.location}}" placeholder="Enter your location" name="location">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Education:</label>-->
+                            <!--<input type="text" class="form-control"  name="education">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Works:</label>-->
+                            <!--<input type="text" class="form-control" name="title">-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Email:</label>-->
+                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.email}}" placeholder="Enter your email" name="email">-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label>Profile Picture:</label>-->
+                            <!--<input type="text" class="form-control" name="title">-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--{{/with}}-->
             </div>
+
+
+
         </div>
     </div>
 </template>

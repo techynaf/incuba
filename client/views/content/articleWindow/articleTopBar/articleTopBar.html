@@ -1,8 +1,24 @@
 <template name="articleTopBar">
-	<div class="col-md-8">
-        {{> tagBar}}
+	<!--<div class="col-md-8">-->
+        <!--{{> tagBar}}-->
+    <!--</div>-->
+    <!--<div class="col-md-4">-->
+        <!--{{> searchBar}}-->
+    <!--</div>-->
+
+
+
+    <div class="ibox-content" id="ibox_header">
+        <div class="float-e-margins p-md">
+            <div class="text-center">
+
+                {{> tagBar}}
+
+                {{> searchBar}}
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        {{> searchBar}}
-    </div>
+
+
 </template>
