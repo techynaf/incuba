@@ -11,6 +11,7 @@ html, body {
 	height: 100%;
 	border: 2px solid #1abc9c;
 	overflow: scroll;
+	opacity: 0.5;
 }
 
 #chatBox{
