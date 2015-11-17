@@ -1,5 +1,7 @@
 <template name="sendersMentor">
-    <div class="row">
+
+    <div class="col-lg-7" id="ibox_article">
+
         {{#each users}}
             {{#if isCurrentWindow user._id}}
                 <p class="user" name="user" id={{user._id}}>{{this.user.profile.full_name}}, 0</p>
@@ -9,4 +11,5 @@
 
         {{/each}}
     </div>
+
 </template>

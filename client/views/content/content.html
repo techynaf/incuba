@@ -5,11 +5,15 @@
                 <img width="33px" id="forward" alt="image" class="img-circle" src="forward.png">
             </a>
             <div class="wrapper wrapper-content">
-                <!--Page Start-->
-                {{> articleWindow}}
+                {{#if isInRole 'mentor' 'default-group'}}
+                    {{> sendersMentor}}
+                    {{> chatboxMentor}}
 
+                {{else}}
+                    {{> articleWindow}}
+                    {{> chatbox}}
+                {{/if}}
 
-                {{> chatbox}}
             </div>
         </div>
     </div>

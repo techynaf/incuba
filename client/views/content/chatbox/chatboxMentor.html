@@ -1,32 +1,75 @@
 <template name="chatboxMentor">
 
-    <div class="panel panel-default" style="height:100%">
-	  	<div class="panel-body" id="chatBox">
-            {{#each messages}}
-                {{#if isUserMessage type}}
-                    <div class="alert alert-success" role="alert" id="admin_msg">
-                        {{body}}
-                    </div>
-                {{/if}}
+    <div class="col-lg-4">
+        <div class="ibox float-e-margins"  id="ibox_chat">
+            <div class="ibox-content" id="chat_border"><div>
+                <div class="chat-activity-list">
+                    <div class="ibox float-e-margins" id="chat_box">
+                        <a href="#">
+                            <img width="33px" id="backward" alt="image" class="img-circle" src="img/backward.png">
+                        </a>
 
-                {{#if isMentorMessage type}}
-                    <div class="alert alert-info" role="alert" id="user_msg">
-                        {{body}}
-                    </div>
-                {{/if}}
+                        {{#each messages}}
 
-                {{#if isSiteMessage type}}
-                    <div class="alert alert-warning" role="alert" id="user_msg">
-                        {{body}}
-                    </div>
-                {{/if}}
-            {{/each}}
+                            {{#if isUserMessage type}}
+                                <div class="chat-element">
+                                    <a href="#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a2.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <strong>User</strong>
+                                        <p class="m-b-xs">
+                                            {{body}}
+                                        </p>
+                                        <small class="text-muted">{{sentAt}}</small>
+                                    </div>
+                                </div>
+                            {{/if}}
 
-    		<form>
-    			<div class="well" id="commentBox" style="background-color:#1abc9c">
-    				<input class="form-control" name="message" placeholder="Type your message here...">
-    			</div>
-	    	</form>
-	  	</div>
-	</div>
+                            {{#if isMentorMessage type}}
+                                <div class="chat-element">
+                                    <a href="#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a2.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <strong>Mentor</strong>
+                                        <p class="m-b-xs">
+                                            {{body}}
+                                        </p>
+                                        <small class="text-muted">{{sentAt}}</small>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if isSiteMessage type}}
+                                <div class="chat-element">
+                                    <a href="#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="img/a2.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <strong>Site</strong>
+                                        <p class="m-b-xs">
+                                            {{body}}
+                                        </p>
+                                        <small class="text-muted">{{sentAt}}</small>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                        {{/each}}
+
+                    </div>
+                </div>
+            </div>
+                <div class="chat-form">
+
+                    <form role="form">
+                        <div class="form-group" id="commentBox">
+                            <input name="message"  class="form-control" placeholder="Type your message here...">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
