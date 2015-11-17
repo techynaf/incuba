@@ -1,10 +1,28 @@
 <template name="articleWindow">
-    <div class="row">
+    <!--<div class="row">-->
+        <!--{{> articleTopBar}}-->
+    <!--</div>-->
+    <!--<div class="row" style="height:89%">-->
+        <!--<div class="col-md-12" style="height:100%">-->
+            <!--{{> articles}}-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="col-lg-11" id="ibox_article">
+
+
         {{> articleTopBar}}
-    </div>
-    <div class="row" style="height:89%">
-        <div class="col-md-12" style="height:100%">
-            {{> articles}}
+
+
+        <div class="ibox float-e-margins" id="article_border">
+
+            <div class="ibox-content" id="ibox_article">
+                <div id="vertical-timeline" class="vertical-container dark-timeline">
+                    {{> articles }}
+                </div>
+            </div>
         </div>
     </div>
+
+
+
 </template>

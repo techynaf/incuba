@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    /*background-image: url("background.png");*/
+}
+
+#chat_box{
+    height: 600px;
+    overflow: scroll;
+}
+
+#ibox_header{
+    background-color: #ecf0f1;
+    background-image: url("background.png");
+    border: 1px solid #16a085;
+}
+
+#chat_border{
+    border: 1px solid #16a085;
+}
+
+#forward{
+    margin-top: 30%;
+    float: right;
+}
+
+
+

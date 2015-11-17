@@ -1,24 +1,40 @@
 <template name="content">
-    <div class="container-fluid" id="main_body">
-        <div class="row" style="height:100%">
-            {{#if isInRole 'mentor' 'default-group'}}
-                <div class="col-md-4" style="height:100%">
-                    {{> sendersMentor}}
-                </div>
 
-                <div class="col-md-8" style="height:92%">
-                    {{> chatboxMentor}}
-                </div>
-            {{else}}
-                <div class="col-md-8" style="height:100%">
-                    {{> articleWindow}}
-                </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="#">
+                <img width="33px" id="forward" alt="image" class="img-circle" src="img/forward.png">
+            </a>
+            <div class="wrapper wrapper-content">
+                <!--Page Start-->
 
-                <div class="col-md-4" style="height:92%">
-                    {{> chatbox}}
-                </div>
-            {{/if}}
+                {{> articleWindow}}
 
+
+                {{> chatbox}}
+            </div>
         </div>
     </div>
+    <!--<div class="container-fluid" id="main_body">-->
+        <!--<div class="row" style="height:100%">-->
+            <!--{{#if isInRole 'mentor' 'default-group'}}-->
+                <!--<div class="col-md-4" style="height:100%">-->
+                    <!--{{> sendersMentor}}-->
+                <!--</div>-->
+
+                <!--<div class="col-md-8" style="height:92%">-->
+                    <!--{{> chatboxMentor}}-->
+                <!--</div>-->
+            <!--{{else}}-->
+                <!--<div class="col-md-8" style="height:100%">-->
+                    <!--{{> articleWindow}}-->
+                <!--</div>-->
+
+                <!--<div class="col-md-4" style="height:92%">-->
+                    <!--{{> chatbox}}-->
+                <!--</div>-->
+            <!--{{/if}}-->
+
+        <!--</div>-->
+    <!--</div>-->
 </template>

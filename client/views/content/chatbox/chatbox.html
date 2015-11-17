@@ -1,33 +1,118 @@
 <template name="chatbox">
-    <div class="panel panel-default" style="height:100%">
-       
-	  	<div class="panel-body" id="chatBox">
-            {{#each messages}}
+    <!--<div class="panel panel-default" style="height:100%">-->
+       <!---->
+	  	<!--<div class="panel-body" id="chatBox">-->
+            <!--{{#each messages}}-->
 
-                {{#if isUserMessage type}}
-                    <div class="alert alert-success" role="alert" id="admin_msg">
-                        {{body}}
+                <!--{{#if isUserMessage type}}-->
+                    <!--<div class="alert alert-success" role="alert" id="admin_msg">-->
+                        <!--{{body}}-->
+                    <!--</div>-->
+                <!--{{/if}}-->
+
+                <!--{{#if isMentorMessage type}}-->
+                    <!--<div class="alert alert-info" role="alert" id="user_msg">-->
+                        <!--{{body}}-->
+                    <!--</div>-->
+                <!--{{/if}}-->
+
+                <!--{{#if isSiteMessage type}}-->
+                    <!--<div class="alert alert-warning" role="alert" id="user_msg">-->
+                        <!--{{body}}-->
+                    <!--</div>-->
+                <!--{{/if}}-->
+            <!--{{/each}}-->
+
+    		<!--<form>-->
+    			<!--<div class="well" id="commentBox" style="background-color:#1abc9c">-->
+    				<!--<input class="form-control" name="message" placeholder="Type your message here...">-->
+    			<!--</div>-->
+	    	<!--</form>-->
+	  	<!--</div>-->
+	<!--</div>-->
+
+
+
+    <div class="col-lg-4">
+        <div class="ibox float-e-margins"  id="ibox_chat" style="display:none;">
+            <div class="ibox-content" id="chat_border"><div>
+                <div class="chat-activity-list">
+                    <div class="ibox float-e-margins" id="chat_box">
+                        <a href="#">
+                            <img width="33px" id="backward" alt="image" class="img-circle" src="img/backward.png">
+                        </a>
+                        <div class="chat-element">
+                            <a href="#" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                            </a>
+                            <div class="media-body">
+                                <strong>Mike Smith</strong>
+                                <p class="m-b-xs">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                                </p>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
+                        <div class="chat-element right">
+                            <a href="#" class="pull-right">
+                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                            </a>
+                            <div class="media-body text-right ">
+                                <strong>John Smith</strong>
+                                <p class="m-b-xs">
+                                    Lorem Ipsum is simply dummy text of the printing.
+                                </p>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
+                        <div class="chat-element ">
+                            <a href="#" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                            </a>
+                            <div class="media-body ">
+                                <strong>Mike Smith</strong>
+                                <p class="m-b-xs">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                                </p>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
+                        <div class="chat-element right">
+                            <a href="#" class="pull-right">
+                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                            </a>
+                            <div class="media-body text-right ">
+                                <strong>John Smith</strong>
+                                <p class="m-b-xs">
+                                    Lorem Ipsum is simply dummy text of the printing.
+                                </p>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
+                        <div class="chat-element ">
+                            <a href="#" class="pull-left">
+                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                            </a>
+                            <div class="media-body ">
+                                <small class="pull-right">2h ago</small>
+                                <strong>Mike Smith</strong>
+                                <p class="m-b-xs">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                                </p>
+                                <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            </div>
+                        </div>
                     </div>
-                {{/if}}
-
-                {{#if isMentorMessage type}}
-                    <div class="alert alert-info" role="alert" id="user_msg">
-                        {{body}}
-                    </div>
-                {{/if}}
-
-                {{#if isSiteMessage type}}
-                    <div class="alert alert-warning" role="alert" id="user_msg">
-                        {{body}}
-                    </div>
-                {{/if}}
-            {{/each}}
-
-    		<form>
-    			<div class="well" id="commentBox" style="background-color:#1abc9c">
-    				<input class="form-control" name="message" placeholder="Type your message here...">
-    			</div>
-	    	</form>
-	  	</div>
-	</div>
+                </div>
+            </div>
+                <div class="chat-form">
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea autofocus class="form-control" placeholder="Message"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
