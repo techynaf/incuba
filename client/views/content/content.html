@@ -1,12 +1,24 @@
 <template name="content">
     <div class="container-fluid" id="main_body">
         <div class="row" style="height:100%">
-            <div class="col-md-8" style="height:100%">
-                {{> articleWindow}}
-            </div>
-            <div class="col-md-4" style="height:92%">
-                {{> chatbox}}
-            </div>
+            {{#if isInRole 'mentor' 'default-group'}}
+                <div class="col-md-4" style="height:100%">
+                    {{> sendersMentor}}
+                </div>
+
+                <div class="col-md-8" style="height:92%">
+                    {{> chatboxMentor}}
+                </div>
+            {{else}}
+                <div class="col-md-8" style="height:100%">
+                    {{> articleWindow}}
+                </div>
+
+                <div class="col-md-4" style="height:92%">
+                    {{> chatbox}}
+                </div>
+            {{/if}}
+
         </div>
     </div>
 </template>

@@ -16,18 +16,8 @@ function getArticles(){
     console.log('from getArticles '+Session.get('searchArticle'));
 
     if(Session.get('searchArticle')){
-        console.log('from if condition '+Session.get('searchArticle'));
-        var query = Session.get('searchArticle');
-        var articles = Articles.find({}); //write a query here
-        console.log('search '+query);
-        //Session.set('searchArticle',null);
-        //return addAuthorToArticle(articles);
-
-        if (Session.get("searchValue")) {
-            return addAuthorToArticle(Articles.find({}, { sort: [["score", "desc"]] }));
-        } else {
-            return addAuthorToArticle(Articles.find({}));
-        }
+        var articles=Articles.find({title: { $regex: Session.get('searchArticle'), $options: 'i' }});
+        return addAuthorToArticle(articles);
     }else if(Session.get('tag')){
         var articles= Articles.find({
             tags: Session.get('tag')
@@ -50,5 +40,6 @@ function addAuthorToArticle(articles){
             finalAricles.push({articleBody: myDoc, articleAuthor: {name: user[0].profile.full_name, slug: user[0].profile.slug}});
         }
     );
+    console.log(finalAricles);
     return finalAricles;
 }

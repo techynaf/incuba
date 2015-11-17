@@ -1,8 +1,26 @@
-Template['chatbox'].helpers({
+Template['chatboxMentor'].helpers({
     'messages' : function () {
-        var userId = Meteor.userId();
-        console.log(Meteor.userId());
-        return getMessage(userId);
+        return getMessage(Session.get("user"));
+
+    },
+    'users' :function(){
+        var uniqueUserArray = getUniqueUsers();
+        var hello = [];
+        for (key in uniqueUserArray ) {
+            var userFullName = Meteor.users.find({_id: uniqueUserArray[key]}).fetch()[0];
+            var totalMessage = Messages.find({$and: [{from: uniqueUserArray[key]},{seen: true}]}).count();
+            hello.push({user: userFullName, count:totalMessage });
+        }
+        return hello;
+    },
+
+    'isCurrentWindow': function(userId){
+        if (Session.get("user") === userId){
+            Meteor.call('seenMessage', userId);
+            return true;
+        }else{
+            return false;
+        }
 
     },
 
@@ -19,23 +37,21 @@ Template['chatbox'].helpers({
     }
 });
 
-
-Template['chatbox'].events({
+Template['chatboxMentor'].events({
 
     "submit form": function(event) {
         event.preventDefault();
         var body = event.target.message.value;
-        var to = 'gpngPePSEvFzPuBry';
+        var to = Session.get("user") ;
         event.target.message.value = "";
         Meteor.call('insertMessage', body, to);
         console.log("Message sent");
     },
-    "click #user" : function(event){
+    "click .user" : function(event){
         event.preventDefault();
-        var userId= event.currentTarget.innerText;
-        Meteor.call('insertMessage', userId);
+        var userId= event.currentTarget.id;
+        Meteor.call('seenMessage', userId);
         Session.set("user",userId);
-        console.log(userId);
     }
 
 
@@ -56,6 +72,6 @@ function getMessage(userId){
     //var userFullName = Meteor.users.find({_id:userId}).fetch()[0].profile.full_name;
     var message = Messages.find({  $or: [ { to: userId }, { from: userId}]}).fetch();
     //console.log(userFullName);
-    console.log(message);
+
     return message;
 }

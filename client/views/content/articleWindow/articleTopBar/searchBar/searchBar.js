@@ -13,4 +13,3 @@ Template['searchBar'].events({
     //    console.log('session is set '+Session.get('searchArticle'));
     //}, 200)
 });
-

@@ -1,0 +1,12 @@
+<template name="sendersMentor">
+    <div class="row">
+        {{#each users}}
+            {{#if isCurrentWindow user._id}}
+                <p class="user" name="user" id={{user._id}}>{{this.user.profile.full_name}}, 0</p>
+            {{else}}
+                <p class="user" name="user" id={{user._id}}>{{this.user.profile.full_name}}, {{this.count}}</p>
+            {{/if}}
+
+        {{/each}}
+    </div>
+</template>
