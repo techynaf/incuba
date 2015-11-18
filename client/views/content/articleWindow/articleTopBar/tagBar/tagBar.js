@@ -13,5 +13,13 @@ Template['tagBar'].helpers({
 });
 
 Template['tagBar'].events({
-
+    'click .tag_button': function(event) {
+        console.log("i am being called. ok?");
+        event.preventDefault();
+        Session.set('tag',event.currentTarget.innerText);
+    },
+    'click #all_tag_button': function(event) {
+        event.preventDefault();
+        Session.set('tag',null);
+    }
 });

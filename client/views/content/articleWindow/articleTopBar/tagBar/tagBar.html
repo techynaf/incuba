@@ -1,11 +1,4 @@
 <template name="tagBar">
-    <!--<div class="well" id="tagBar" style="background-color:#1abc9c">-->
-        <!--<span id="all_tag_button" class="label label-default">all</span>-->
-        <!--{{#each tags}}-->
-        <!--<span id="tag_button" class="label label-default">{{this}}</span>-->
-        <!--{{/each}}-->
-    <!--</div>-->
-
      <span id="all_tag_button">
         <a style="color:black" href="#" class="btn btn-sm btn-primary">
             all
@@ -13,7 +6,7 @@
     </span>
 
     {{#each tags}}  
-        <span id="tag_button">
+        <span class="tag_button">
             <a style="color:black" href="#" class="btn btn-sm btn-primary">
                 {{this}}
             </a>
