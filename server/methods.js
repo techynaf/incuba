@@ -39,7 +39,8 @@ Meteor.methods({
                 body: message,
                 from: loggedInUser,
                 to: receiver,
-                type: 'mentor'
+                type: 'mentor',
+                sentAt: new Date()
             });
             console.log("Posted as mentor");
 
@@ -50,7 +51,8 @@ Meteor.methods({
                 from: loggedInUser,
                 to: receiver,
                 type: 'user',
-                seen: true
+                seen: true,
+                sentAt: new Date()
             });
             console.log("Posted as user");
         }
