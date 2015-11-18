@@ -2,10 +2,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
         <ul class="nav navbar-nav">
+            <li><a href="/"><i class="fa fa-diamond"></i><b style="color:#18A689;font-size:18px">INCUBA</b></a></li>
+
             {{#if isInRole 'writer' 'default-group'}}
-                <li id="postArticle"><a href="/write">Post Article</a></li>
+                <li id="postArticle"><a style="color:#18A689" href="/write">Post Article</a></li>
             {{/if}}
-            <li><a href="#"><i class="fa fa-diamond"></i><b style="color:#18A689;font-size:18px">INCUBA</b></a></li>
+
             <li><a href="#" style="color:#18A689">Button 2</a></li>
             <li><a href="#" style="color:#18A689">Button 3</a></li>
         </ul>

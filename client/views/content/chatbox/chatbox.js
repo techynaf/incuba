@@ -16,7 +16,7 @@ Template['chatbox'].helpers({
 
     'isSiteMessage': function (type) {
         return type === "site"
-    }
+    },
 });
 
 
@@ -36,9 +36,11 @@ Template['chatbox'].events({
         Meteor.call('insertMessage', userId);
         Session.set("user",userId);
         console.log(userId);
+    },
+
+    "click #backward": function(){
+        Session.set('backwardPressed', 1);
     }
-
-
 });
 
 function getUniqueUsers(){

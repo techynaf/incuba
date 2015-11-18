@@ -35,7 +35,6 @@
     <div class="vertical-timeline-block">
         <div class="vertical-timeline-icon">
             <a href="/profile/{{articleAuthor.slug}}"><img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg"></a>
-            
         </div>
 
         <div class="vertical-timeline-content">
@@ -43,14 +42,10 @@
                 <img alt="image" class="img-responsive" src="images/p_big3.jpg">
             </div>
             <div class="col-lg-8">
-                <h2>{{articleBody.title}}</h2>
-                <p>Tag: {{#each articleBody.tags}} 
-                            {{this}}
-                        {{/each}}
-                        </p>
-                <p>{{articleBody.summary}}
+                <a href="/article/{{articleBody.slug}}"><h2>{{articleBody.title}}</h2></a>
+
+                <p>{{articleBody.summary}}</p>
                 <a href="/article/{{articleBody.slug}}">Read more...</a>
-                </p>
                 <p>
                     <a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>
                 </p>
@@ -59,6 +54,12 @@
                 <span class="vertical-date">
                     <small>{{articleBody.createdAt}}</small>
                 </span>
+                <br>
+                {{#each articleBody.tags}}
+                    <a style="color:black; margin-left: 5px;" href="#" class="btn btn-sm btn-primary">
+                        {{this}}
+                    </a>
+                {{/each}}
             </div>
         </div>
     </div>

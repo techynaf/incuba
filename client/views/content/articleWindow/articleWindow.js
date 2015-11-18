@@ -4,6 +4,24 @@ Template['articleWindow'].helpers({
     'article' : function () {
         return Articles.find({},{sort:{createdAt:-1}});
     },
+    'backwardPressed': function(){
+        if(Session.get('backwardPressed')){
+            Session.set('forwardClicked', false);
+            setTimeout(function() {
+                $('#ibox_article').removeClass('col-lg-7').addClass('col-lg-11');
+            }, 500);
+            $("#forward").show();
+            $('#ibox_chat').toggle( "slide" );
+        }
+    },
+    'forwardClicked': function(){
+        if(Session.get('forwardClicked')){
+            Session.set('backwardPressed', false);
+            $('#ibox_article').removeClass('col-lg-11').addClass('col-lg-7');
+            $("#forward").hide();
+            $('#ibox_chat').toggle('slide');
+        }
+    },
 });
 
 Template['articleWindow'].events({

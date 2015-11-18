@@ -8,14 +8,15 @@
         <!--</div>-->
     <!--</div>-->
     <div class="col-lg-7" id="ibox_article">
-
+        {{backwardPressed}}
+        {{forwardClicked}}
 
         {{> articleTopBar}}
 
 
         <div class="ibox float-e-margins" id="article_border">
 
-            <div class="ibox-content" id="ibox_article">
+            <div class="ibox-content">
                 <div id="vertical-timeline" class="vertical-container dark-timeline">
                     {{> articles }}
                 </div>
