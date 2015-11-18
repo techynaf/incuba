@@ -1,21 +1,26 @@
 <template name="profileControl">
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div>
         <ul class="nav navbar-nav">
             {{#if isInRole 'writer' 'default-group'}}
                 <li id="postArticle"><a href="/write">Post Article</a></li>
             {{/if}}
-            <li><a href="#" style="color:black">Button 2</a></li>
-            <li><a href="#" style="color:black">Button 3</a></li>
+            <li><a href="#"><i class="fa fa-diamond"></i><b style="color:#18A689;font-size:18px">INCUBA</b></a></li>
+            <li><a href="#" style="color:#18A689">Button 2</a></li>
+            <li><a href="#" style="color:#18A689">Button 3</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {{#if currentUser}}
-                <li><a id="logoutButton" href="#" style="color:black">Logout</a></li>
+                <li><a id="logoutButton" href="#" style="color:#18A689">Logout</a></li>
             {{else}}
-                <li><a id="loginButton" href="#" style="color:black" data-toggle="modal" data-target=".bs-example-modal-sm">Login</a></li>
+                <li>
+                    <a id="loginButton" href="#" style="color:#18A689" data-toggle="modal" data-target=".bs-example-modal-sm">
+                        Login
+                    </a>
+                </li>
             {{/if}}
             <li class="dropdown">
-                <a href="#" style="color:black" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
+                <a href="#" style="color:#18A689" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
                     {{full_name}}
                 </a>
                 <ul class="dropdown-menu">
