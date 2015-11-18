@@ -28,11 +28,15 @@ Template.register.events({
                 if(err){
                     Session.set('errorMSG', err.reason);
                     Session.set('successMSG', null);
-
                 }else{
                     console.log(Meteor.userId());
                     Session.set('successMSG', 'Registration Successful!');
                     Session.set('errorMSG', null);
+
+                    setTimeout(function() {
+                        $("#registerModal").modal('hide');
+                        Session.set('successMSG', '');
+                    }, 2000);
                 }
             });
 
@@ -40,20 +44,8 @@ Template.register.events({
         }else{
             Session.set('errorMSG', 'Password too short.');
         }
-    },
-    'submit #login': function (event) {
-        event.preventDefault();
-        var emailVar = event.target.loginEmail.value;
-        var passwordVar = event.target.loginPassword.value;
-
-        Meteor.loginWithPassword(emailVar,passwordVar,function(err){
-            if(Meteor.user()){
-                //TODO: close the modal
-            }else{
-                Session.set('errorMSG',err.reason);
-            }
-        });
     }
+
 });
 
 
