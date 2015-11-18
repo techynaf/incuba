@@ -39,8 +39,15 @@ function addAuthorToArticle(articles){
     articles.forEach(
         function(myDoc) {
             var user =  Meteor.users.findOne({"_id": myDoc.author});
+            var d1 = Date.parse(myDoc.createdAt);
+            var d2 = new Date(d1);
+            var dateTime = d2.getDate()+"/"+d2.getMonth()+"/"+d2.getFullYear();
             if(user){
-                finalAricles.push({articleBody: myDoc, articleAuthor: {name: user.profile.full_name, slug: user.profile.slug}});
+                finalAricles.push({
+                    articleBody: myDoc,
+                    articleAuthor: {name: user.profile.full_name, slug: user.profile.slug},
+                    articleDateTime: dateTime
+                });
             }
         }
     );
