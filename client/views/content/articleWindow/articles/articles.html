@@ -1,71 +1,34 @@
 <template name="articles">
-    <!--<div class="panel panel-default" id="articleContent">-->
-        <!--{{#each article}}-->
-    	<!--<div class="panel-body">-->
-    		<!--<div class="panel panel-default">-->
-    			<!--<div class="panel-heading">-->
-					<!--<h3 class="panel-title">{{articleBody.title}}</h3>-->
-				<!--</div>-->
-                <!--<div class="panel-body">-->
-                    <!--<p><b>Tags:</b></p>-->
-                    <!--{{#each articleBody.tags}}-->
-                        <!--<p>{{this}}</p>-->
-                    <!--{{/each}}-->
-                    <!--<p>summary: {{articleBody.summary}}</p>-->
-                    <!--<p>body: {{articleBody.body}}</p>-->
-                    <!--<p>Created at: {{articleBody.createdAt}}</p>-->
-			    	<!--{{body}}-->
-			  	<!--</div>-->
-			  	<!--<div  class="panel-footer clearfix">-->
-                    <!--<div align="left">-->
-                        <!--<a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>-->
-                    <!--</div>-->
-                    <!--<div align="right">-->
-                        <!--<a href="/article/{{articleBody.slug}}">Read More...</a>-->
-                    <!--</div>-->
-                    <!--<div class="clearfix"></div>-->
-                <!--</div>-->
-			<!--</div>-->
-    	<!--</div>-->
-        <!--{{/each}}-->
-    <!--</div>-->
-
-
     {{#each article}}
-    <div class="vertical-timeline-block">
-        <div class="vertical-timeline-icon">
-            <a href="/profile/{{articleAuthor.slug}}"><img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg"></a>
-        </div>
-
-        <div class="vertical-timeline-content">
-            <div class="col-lg-4">
-                <img alt="image" class="img-responsive" src="images/p_big3.jpg">
+        <div class="vertical-timeline-block">
+            <div class="vertical-timeline-icon">
+                <a href="/profile/{{articleAuthor.slug}}"><img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg"></a>
             </div>
-            <div class="col-lg-8">
-                <a href="/article/{{articleBody.slug}}"><h2>{{articleBody.title}}</h2></a>
 
-                <p>{{articleBody.summary}}</p>
-                <a href="/article/{{articleBody.slug}}">Read more...</a>
-                <p>
-                    <a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>
-                </p>
+            <div class="vertical-timeline-content">
+                <div class="col-lg-4">
+                    <img alt="image" class="img-responsive" src="images/p_big3.jpg">
+                </div>
+                <div class="col-lg-8">
+                    <a href="/article/{{articleBody.slug}}"><h2>{{articleBody.title}}</h2></a>
 
-               
-                <span class="vertical-date">
-                    <small>{{articleBody.createdAt}}</small>
-                </span>
-                <br>
-                {{#each articleBody.tags}}
-                    <a style="color:black; margin-left: 5px;" href="#" class="btn btn-sm btn-primary">
-                        {{this}}
-                    </a>
-                {{/each}}
+                    <p>{{articleBody.summary}}</p>
+                    <a href="/article/{{articleBody.slug}}">Read more...</a>
+                    <p>
+                        <a href="/profile/{{articleAuthor.slug}}">{{articleAuthor.name}}</a>
+                    </p>
+
+                    <span class="vertical-date">
+                        <small>{{articleBody.createdAt}}</small>
+                    </span>
+                    <br>
+                    {{#each articleBody.tags}}
+                        <a style="color:black; margin-left: 5px;" href="#" class="btn btn-sm btn-primary">
+                            {{this}}
+                        </a>
+                    {{/each}}
+                </div>
             </div>
         </div>
-    </div>
-
-
     {{/each}}
-
-
 </template>

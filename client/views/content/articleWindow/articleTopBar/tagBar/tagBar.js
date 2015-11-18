@@ -8,12 +8,9 @@ Template['tagBar'].helpers({
                 mainArray.push(array[key3]);
             }
         }
-
         return _.uniq(mainArray);
-
-
-
-}});
+    },
+});
 
 Template['tagBar'].events({
 
