@@ -2,10 +2,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="/"><i class="fa fa-diamond"></i><b style="color:#18A689;font-size:18px">INCUBA</b></a></li>
+            <li><a href="/"><i class="fa fa-diamond"></i><b style="color:black;font-size:18px">INCUBA</b></a></li>
 
             {{#if isInRole 'writer' 'default-group'}}
-                <li id="postArticle"><a style="color:#18A689" href="/write">Post Article</a></li>
+                <li id="postArticle"><a style="color:black" href="/write">Post Article</a></li>
             {{/if}}
 
             <!--<li><a href="#" style="color:#18A689">Button 2</a></li>-->
@@ -15,7 +15,7 @@
             {{#if currentUser}}
 
                 <li class="dropdown">
-                    <a href="#" style="color:#18A689" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
+                    <a href="#" style="color:black" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
                         {{full_name}}
                     </a>
                     <ul class="dropdown-menu">
@@ -26,13 +26,13 @@
                 </li>
             {{else}}
                 <li>
-                    <a id="loginButton" href="#" style="color:#18A689" data-toggle="modal" data-target=".loginModal">
+                    <a id="loginButton" href="#" style="color:black" data-toggle="modal" data-target=".loginModal">
                         Login
                     </a>
                 </li>
 
                 <li>
-                    <a id="loginButton" href="#" style="color:#18A689" data-toggle="modal" data-target=".registrationModal">
+                    <a id="loginButton" href="#" style="color:black" data-toggle="modal" data-target=".registrationModal">
                         Register
                     </a>
                 </li>
