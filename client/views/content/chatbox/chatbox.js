@@ -17,6 +17,16 @@ Template['chatbox'].helpers({
     'isSiteMessage': function (type) {
         return type === "site"
     },
+
+    getCurrentUserName: function(){
+        var userFullName = Meteor.users.findOne({_id: Meteor.user()._id}).profile.full_name;
+        return userFullName;
+    },
+
+    getCurrentUserProfilePicture: function(){
+        var photo = Meteor.users.findOne({_id: Meteor.user()._id}).profile.profilePicture;
+        return photo;
+    },
 });
 
 
@@ -55,9 +65,15 @@ function getUniqueUsers(){
 }
 
 function getMessage(userId){
-    //var userFullName = Meteor.users.find({_id:userId}).fetch()[0].profile.full_name;
-    var message = Messages.find({  $or: [ { to: userId }, { from: userId}]}).fetch();
-    //console.log(userFullName);
-    console.log(message);
-    return message;
+    setTimeout(function() {
+        $('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
+    }, 50);
+    if(Meteor.user()) {
+        var message = Messages.find({$or: [{to: userId}, {from: userId}]}).fetch();
+        return message;
+    }else{
+        return null;
+    }
 }
+
+Session.set('backwardPressed', null);

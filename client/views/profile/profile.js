@@ -1,12 +1,4 @@
 Template['profile'].helpers({
-    "worksAt":[],
-    "workedAt":[],
-    "projectsCompleted":[],
-    "workInternships":[],
-    "eventsAttended":[],
-    "trainingAttended":[],
-    "certificationAchieved":[],
-
     worksAt: function(){
         return {
             type: 'text',

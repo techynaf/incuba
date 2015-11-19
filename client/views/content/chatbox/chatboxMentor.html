@@ -13,15 +13,21 @@
 
                             {{#if isUserMessage type}}
                                 <div class="chat-element">
-                                    <a href="#" class="pull-left">
-                                        <img alt="image" class="img-circle" src="img/a2.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <strong>User</strong>
-                                        <p class="m-b-xs">
-                                            {{body}}
-                                        </p>
-                                        <small class="text-muted">{{sentAt}}</small>
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div class="media-body">
+                                                <strong>{{getCurrentUserName}}</strong>
+                                                <p class="m-b-xs">
+                                                    {{body}}
+                                                </p>
+                                                <small class="text-muted">{{sentAt}}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="/upload/{{getCurrentUserProfilePicture}}">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             {{/if}}

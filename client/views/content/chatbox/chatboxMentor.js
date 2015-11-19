@@ -69,9 +69,6 @@ function getUniqueUsers(){
 }
 
 function getMessage(userId){
-    //var userFullName = Meteor.users.find({_id:userId}).fetch()[0].profile.full_name;
     var message = Messages.find({  $or: [ { to: userId }, { from: userId}]}).fetch();
-    //console.log(userFullName);
-
     return message;
 }

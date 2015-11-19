@@ -12,6 +12,7 @@ Template['articleWindow'].helpers({
             }, 500);
             $("#forward").show();
             $('#ibox_chat').toggle( "slide" );
+            $('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
         }
     },
     'forwardClicked': function(){
@@ -20,6 +21,7 @@ Template['articleWindow'].helpers({
             $('#ibox_article').removeClass('col-lg-11').addClass('col-lg-8');
             $("#forward").hide();
             $('#ibox_chat').toggle('slide');
+            $('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
         }
     },
 });
@@ -35,3 +37,4 @@ Template['articleWindow'].events({
     }, 200),
 });
 
+Session.set('forwardClicked', null);
