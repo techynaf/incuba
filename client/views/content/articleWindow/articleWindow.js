@@ -8,7 +8,7 @@ Template['articleWindow'].helpers({
         if(Session.get('backwardPressed')){
             Session.set('forwardClicked', false);
             setTimeout(function() {
-                $('#ibox_article').removeClass('col-lg-7').addClass('col-lg-11');
+                $('#ibox_article').removeClass('col-lg-8').addClass('col-lg-11');
             }, 500);
             $("#forward").show();
             $('#ibox_chat').toggle( "slide" );
@@ -17,7 +17,7 @@ Template['articleWindow'].helpers({
     'forwardClicked': function(){
         if(Session.get('forwardClicked')){
             Session.set('backwardPressed', false);
-            $('#ibox_article').removeClass('col-lg-11').addClass('col-lg-7');
+            $('#ibox_article').removeClass('col-lg-11').addClass('col-lg-8');
             $("#forward").hide();
             $('#ibox_chat').toggle('slide');
         }
