@@ -38,3 +38,5 @@ accounts-ui
 alanning:roles
 workman:meteor-editable
 tarmes:tag-list
+tomi:upload-server
+tomi:upload-jquery

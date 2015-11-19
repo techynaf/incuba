@@ -5,7 +5,9 @@ Template.register.events({
         var passwordVar = event.target.registerPassword.value;
         var profileVar =  {
             "full_name" : event.target.registerFullName.value,
-            "slug"      : event.target.registerFullName.value.replace(/\s+/g, '-').toLowerCase()+ '-' + UI._globalHelpers.randomString(10)
+            "slug"      : event.target.registerFullName.value.replace(/\s+/g, '-').toLowerCase()+ '-' + UI._globalHelpers.randomString(10),
+            "location"  : '',
+            "sex"       : '',
 
         };
         console.log("Form submitted.");

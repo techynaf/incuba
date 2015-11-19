@@ -1,12 +1,44 @@
 Template['profile'].helpers({
+    profilePictureUpload: function() {
+        return {
+            formData: function() { return { id: "232323", other: Session.get("ReactiveParam") } },
+            finished: function(index, fileInfo, context) {
+                if(fileInfo){
+                    Meteor.call("updateUserInfo", "profilePicture", fileInfo.name, function(err, data){
+                        $("#photoUploadModal").modal('hide');
+                    });
+                }
+            },
+
+        }
+    },
+
+
+    'checkUser': function(){
+        if(Meteor.user()){
+            if(Meteor.user().profile.slug == slug){
+                return true;
+            }
+        }
+        return false;
+    },
+
+
     'optionsFullName': function () {
-        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        var user =  Meteor.users.findOne({'profile.slug' : slug });
+
+        if(user){
+            value = user.profile.full_name;
+        }else{
+            value = "Full Name";
+        }
+
         return {
             type: 'text',
             async: true,
             placeholder: 'Full Name',
             position: 'right',
-            value: user[0].profile.full_name,
+            value: value,
             onsubmit: function (val, cb) {
                 setTimeout(function () {
                     Meteor.call("updateUserInfo", "full_name", val, function(err, data){
@@ -19,13 +51,18 @@ Template['profile'].helpers({
     },
 
     'optionsAge': function () {
-        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        var user =  Meteor.users.findOne({'profile.slug' : slug });
+        if(user.profile.age){
+            value = user.profile.age;
+        }else{
+            value = "Age";
+        }
         return {
             type: 'text',
             async: true,
             placeholder: 'Age',
             position: 'right',
-            value: user[0].profile.age,
+            value: value,
             onsubmit: function (val, cb) {
                 setTimeout(function () {
                     Meteor.call("updateUserInfo", "age", val, function(err, data){
@@ -38,9 +75,9 @@ Template['profile'].helpers({
     },
 
     'optionsSex': function () {
-        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
-        if(user[0].profile.sex){
-            value = user[0].profile.sex;
+        var user =  Meteor.users.findOne({'profile.slug' : slug });
+        if(user.profile.sex){
+            value = user.profile.sex;
         }else{
             value = "Gender";
         }
@@ -63,10 +100,10 @@ Template['profile'].helpers({
     },
 
     'optionsLocation': function () {
-        var user =  Meteor.users.find({}, {'profile.slug' : slug }).fetch();
+        var user =  Meteor.users.findOne({'profile.slug' : slug });
         var value;
-        if(user[0].profile.location){
-            value = user[0].profile.location;
+        if(user.profile.location){
+            value = user.profile.location;
         }else{
             value = "Your Location";
         }
@@ -88,7 +125,7 @@ Template['profile'].helpers({
     },
 
     'intialEducation': function() {
-        var user = Meteor.users.find({}, {'profile.slug': slug}).fetch();
+        var user = Meteor.users.findOne({'profile.slug': slug});
         //if (user[0].profile.education) {
             //return user[0].profile.education;
         return ["SSC kos ki mama?", "na na na ato chodon diyo na"];
@@ -106,9 +143,9 @@ Template['profile'].helpers({
     'ProfileData': function () {
 
         var userSlug = slug;
-        var user =  Meteor.users.find({}, {'profile.slug' : userSlug }).fetch();
-        //console.log(user);
-        return user[0];
+        var user =  Meteor.users.findOne({'profile.slug' : userSlug });
+        console.log(user);
+        return user;
 
         //return {
         //    'name': 'Sakib Hasan',

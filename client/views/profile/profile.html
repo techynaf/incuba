@@ -1,84 +1,139 @@
 <template name="profile">
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-md-12">
-                <h1>{{> m_editable optionsFullName }}</h1>
-
-                <h3>
-                    {{> m_editable optionsAge }}, {{> m_editable optionsSex }}, {{> m_editable optionsLocation }}
-                </h3>
-
-                <!--<h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>-->
-                <img src="{{ProfileData.profilePicture}}">
-                <h3>
-                    Education
-                </h3>
-
-                {{> tagList id="education" defaultItems=intialEducation}}
-                <!---->
-                <!--{{#each ProfileData.education}}-->
-                    <!--<div style="border: 1px solid black; padding: 50px;">-->
-                        <!--<h3>{{schoolName}}</h3>-->
-                        <!--<h5>{{time}}</h5>-->
-                        <!--<h5>{{program}}</h5>-->
+    <body class="mini-navbar">
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="row">
+                    <!--<div class="col-lg-2">-->
                     <!--</div>-->
-                <!--{{/each}}-->
+                    <div class="col-lg-12">
+                        {{#if checkUser}}
+                        <!--Show edit options -->
+                        <div class="ibox-content" style="margin-top: 2px !important;">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
+                                    <br>
+                                    <br>
+                                    <button class="btn btn-success center-block" data-toggle="modal" data-target=".photoUploadModal" id="ProfilePictureUploadButton">Upload Profile Picture</button>
+                                </div>
+                                <div class="col-lg-10">
+                                    <h1>{{> m_editable optionsFullName }}</h1>
 
-                <h3>
-                    Works
-                </h3>
-                {{#each ProfileData.works}}
-                    <div style="border: 1px solid black; padding: 50px;">
-                        <h3>{{company}}</h3>
-                        <h5>{{time}}</h5>
-                        <h5>{{designation}}</h5>
+                                    <h3>
+                                        {{> m_editable optionsAge }}, {{> m_editable optionsSex }}, {{> m_editable optionsLocation }}
+                                    </h3>
+
+                                    <h3>
+                                        Education
+                                    </h3>
+
+                                    {{> tagList id="education" defaultItems=intialEducation}}
+                                    <!---->
+                                        <!--{{#each ProfileData.education}}-->
+                                    <!--<div style="border: 1px solid black; padding: 50px;">-->
+                                    <!--<h3>{{schoolName}}</h3>-->
+                                    <!--<h5>{{time}}</h5>-->
+                                    <!--<h5>{{program}}</h5>-->
+                                    <!--</div>-->
+                                        <!--{{/each}}-->
+
+                                    <h3>
+                                        Works
+                                    </h3>
+                                    {{#each ProfileData.works}}
+                                        <div style="border: 1px solid black; padding: 50px;">
+                                            <h3>{{company}}</h3>
+                                            <h5>{{time}}</h5>
+                                            <h5>{{designation}}</h5>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+
+
+                            <!-- Photo Upload Modal -->
+                            <div id="photoUploadModal" class="modal fade photoUploadModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title text-center" id="myModalLabel">Upload Profile Photo</h4>
+                                        </div>
+                                        <div id="mymodal" class="modal-body">
+                                            {{> upload_bootstrap fileTypes='.jpg,.png,.gif' callbacks=profilePictureUpload }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>-->
+                        </div>
+                        {{else}}
+                            <!--DONT Show edit options -->
+                            <div class="ibox-content" style="margin-top: 2px !important;">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <h1>{{ProfileData.profile.full_name}}</h1>
+
+                                        <h3>
+                                            {{ProfileData.profile.age}}, {{ProfileData.profile.sex}}, {{ProfileData.profile.location}}
+                                        </h3>
+
+                                        <h3>
+                                            Education
+                                        </h3>
+
+                                        {{> tagList id="education" defaultItems=intialEducation}}
+                                        <!---->
+                                            <!--{{#each ProfileData.education}}-->
+                                        <!--<div style="border: 1px solid black; padding: 50px;">-->
+                                        <!--<h3>{{schoolName}}</h3>-->
+                                        <!--<h5>{{time}}</h5>-->
+                                        <!--<h5>{{program}}</h5>-->
+                                        <!--</div>-->
+                                            <!--{{/each}}-->
+
+                                        <h3>
+                                            Works
+                                        </h3>
+                                        {{#each ProfileData.works}}
+                                            <div style="border: 1px solid black; padding: 50px;">
+                                                <h3>{{company}}</h3>
+                                                <h5>{{time}}</h5>
+                                                <h5>{{designation}}</h5>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+
+
+                                <!-- Photo Upload Modal -->
+                                <div id="photoUploadModal" class="modal fade photoUploadModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title text-center" id="myModalLabel">Upload Profile Photo</h4>
+                                            </div>
+                                            <div id="mymodal" class="modal-body">
+                                                {{> upload_bootstrap fileTypes='.jpg,.png,.gif' callbacks=profilePictureUpload }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>-->
+                            </div>
+
+                        {{/if}}
                     </div>
-                {{/each}}
-
-
-                <!--&lt;!&ndash; Edit Template &ndash;&gt;-->
-                <!--{{#with userPressedEdit}}-->
-                    <!--<form class="editProfileForm" role="form">-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Name:</label>-->
-                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.full_name}}" placeholder="Enter your full name" name="name">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Age:</label>-->
-                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.age}}" placeholder="Enter your age" name="age">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Sex:</label>-->
-                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.sex}}" placeholder="Enter your gender" name="sex">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Location:</label>-->
-                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.location}}" placeholder="Enter your location" name="location">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Education:</label>-->
-                            <!--<input type="text" class="form-control"  name="education">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Works:</label>-->
-                            <!--<input type="text" class="form-control" name="title">-->
-                        <!--</div>-->
-                        <!--<div class="form-group">-->
-                            <!--<label>Email:</label>-->
-                            <!--<input type="text" class="form-control" value="{{ProfileData.profile.email}}" placeholder="Enter your email" name="email">-->
-                        <!--</div>-->
-
-                        <!--<div class="form-group">-->
-                            <!--<label>Profile Picture:</label>-->
-                            <!--<input type="text" class="form-control" name="title">-->
-                        <!--</div>-->
-                    <!--</form>-->
-                <!--{{/with}}-->
+                    <!--<div class="col-lg-2">-->
+                    <!--</div>-->
+                </div>
             </div>
-
-
-
         </div>
-    </div>
+    </body>
 </template>

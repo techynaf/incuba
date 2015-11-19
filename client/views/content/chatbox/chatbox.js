@@ -25,7 +25,7 @@ Template['chatbox'].events({
     "submit form": function(event) {
         event.preventDefault();
         var body = event.target.message.value;
-        var to = 'd35D2nQQYGAzvypor';
+        var to = 'TKSRGPzCoF7Tbq3hW';
         event.target.message.value = "";
         Meteor.call('insertMessage', body, to);
         console.log("Message sent");
