@@ -1,7 +1,21 @@
 Template.write_article.helpers({
     'ArticleSubmitStatus': function(){
 
-    }
+    },
+    'getArticlePhoto': function () {
+        return Session.get('getArticlePhoto');
+    },
+
+    ArticlePhotoUpload: function() {
+        return {
+            finished: function(index, fileInfo, context) {
+                if(fileInfo){
+                    Session.set('getArticlePhoto', fileInfo.name);
+                }
+            },
+
+        }
+    },
 });
 
 Template.write_article.events({
@@ -11,32 +25,18 @@ Template.write_article.events({
         var body = event.target.body.value;
         var summary = event.target.summary.value;
         var tags = event.target.tag.value.split(',');
-
-        var createdAt = '';
-        //date starts
-        var monthNames = [
-            "January", "February", "March",
-            "April", "May", "June", "July",
-            "August", "September", "October",
-            "November", "December"
-        ];
-
-        var date = new Date();
-        var day = date.getDate();
-        var monthIndex = date.getMonth();
-        var year = date.getFullYear();
-
-        createdAt = day + ' ' + monthNames[monthIndex] + ' ' + year;
-        // date ends
+        var photo = event.target.articlePhoto.value;
 
         Articles.insert({
             title: title,
             summary: summary,
             tags:tags,
             body: body,
-            createdAt: new date(),
+            createdAt: new Date(),
             slug: title.replace(/\s+/g, '-').toLowerCase() + '-' + UI._globalHelpers.randomString(10),
-            author: Meteor.userId()
+            author: Meteor.userId(),
+            photo: photo,
+
         });
         $("#ArticleSubmitMsg").show();
     }

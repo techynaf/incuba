@@ -6,6 +6,9 @@ Template['articles'].helpers({
     'article' : function () {
         return getArticles();
     },
+    checkPhoto: function(){
+
+    },
 });
 
 
@@ -49,7 +52,11 @@ function addAuthorToArticle(articles){
             if(user){
                 finalAricles.push({
                     articleBody: myDoc,
-                    articleAuthor: {name: user.profile.full_name, slug: user.profile.slug},
+                    articleAuthor: {
+                        name: user.profile.full_name,
+                        slug: user.profile.slug,
+                        profilePicture: user.profile.profilePicture
+                    },
                     articleDateTime: dateTime
                 });
             }

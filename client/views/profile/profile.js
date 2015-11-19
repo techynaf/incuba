@@ -1,9 +1,11 @@
 Template['profile'].helpers({
     profilePictureUpload: function() {
         return {
-            formData: function() { return { id: "232323", other: Session.get("ReactiveParam") } },
             finished: function(index, fileInfo, context) {
                 if(fileInfo){
+
+                    console.log(fileInfo);
+
                     Meteor.call("updateUserInfo", "profilePicture", fileInfo.name, function(err, data){
                         $("#photoUploadModal").modal('hide');
                     });
