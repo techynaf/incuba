@@ -12,14 +12,21 @@ Meteor.methods({
         console.log(finalAricles);
         return finalAricles;
     },
+
+    updateUserProfileData: function(fieldname, value){
+        var $set = {};
+        $set['profile.' + fieldname] = value;
+        Meteor.users.update(
+            {_id:Meteor.user()._id},
+            {$addToSet: $set}
+        );
+    },
+
+
+
     updateUserInfo: function(fieldname, value){
         var $set = {};
         $set['profile.' + fieldname] = value;
-        //if(Session.get('full_name')){
-        //    Session.set('full_name', value);
-        //}else{
-        //    Session.set('full_name', value);
-        //}
         Meteor.users.update(
             {_id:Meteor.user()._id},
             {$set: $set}

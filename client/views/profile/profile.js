@@ -1,4 +1,204 @@
 Template['profile'].helpers({
+    "worksAt":[],
+    "workedAt":[],
+    "projectsCompleted":[],
+    "workInternships":[],
+    "eventsAttended":[],
+    "trainingAttended":[],
+    "certificationAchieved":[],
+
+    worksAt: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Works At',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "worksAt", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    workedAt: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Worked At',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "workedAt", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    projectsCompleted: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Projects Completed',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "projectsCompleted", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    eventsAttended: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Events Attended',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "eventsAttended", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    trainingAttended: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Training Attended',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "trainingAttended", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    certificationAchieved: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Certification Achieved',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "certificationAchieved", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+    areaOfWorks: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Area of Works',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "areaOfWorks", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    workInternships: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Internships',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "workInternships", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    areaOfWorks: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Area of Works',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "areaOfWorks", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    areaOfInterest: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Area of Interest',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "areaOfInterest", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
+    coursesTaken: function(){
+        return {
+            type: 'text',
+            async: true,
+            placeholder: 'Add Course',
+            position: 'right',
+            value: '',
+            onsubmit: function (val, cb) {
+                setTimeout(function () {
+                    Meteor.call("updateUserProfileData", "courseTaken", val, function(err, data){
+                        //
+                    });
+                    cb();
+                }, 50);
+            }
+        };
+    },
+
     profilePictureUpload: function() {
         return {
             finished: function(index, fileInfo, context) {
@@ -14,7 +214,6 @@ Template['profile'].helpers({
 
         }
     },
-
 
     'checkUser': function(){
         if(Meteor.user()){
@@ -215,6 +414,13 @@ Template['profile'].events({
         // $(e.currentTarget).html("<span name=\""+fieldname+"\" current=\""+value+"\" class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>");
         // $(e.currentTarget).html(Meteor.render('profile'));
         // console.log("done");
+    },
+
+    'click .addNewRow':function(e){
+        e.preventDefault();
+        console.log($(e.currentTarget).parents('ul')[0].insertBefore("<li>thnkas</li>", $(e.currentTarget).parents('ul')[0].lastElementChild));
+
+        //$(e.currentTarget).parents('ul')[0].childElementCount
     }
 });
 

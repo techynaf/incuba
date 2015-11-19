@@ -8,7 +8,17 @@ Template.register.events({
             "slug"      : event.target.registerFullName.value.replace(/\s+/g, '-').toLowerCase()+ '-' + UI._globalHelpers.randomString(10),
             "location"  : '',
             "sex"       : '',
-
+            "courseTaken": [],
+            "areaOfInterest": [],
+            "areaOfWorks" : [],
+            "internships": [],
+            "worksAt":[],
+            "workedAt":[],
+            "projectsCompleted":[],
+            "workInternships":[],
+            "eventsAttended":[],
+            "trainingAttended":[],
+            "certificationAchieved":[],
         };
         console.log("Form submitted.");
 

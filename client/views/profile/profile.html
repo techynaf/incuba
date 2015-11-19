@@ -12,9 +12,11 @@
                             <div class="jumbotron">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
-                                        <br>
-                                        <br>
+                                        {{#if ProfileData.profile.profilePicture}}
+                                            <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
+                                            <br>
+                                            <br>
+                                        {{/if}}
                                         <button class="btn btn-primary center-block" data-toggle="modal" data-target=".photoUploadModal" id="ProfilePictureUploadButton">Upload Profile Picture</button>
                                     </div>
                                     <div class="col-lg-10">
@@ -24,104 +26,152 @@
                                             {{> m_editable optionsAge }}, {{> m_editable optionsSex }}, {{> m_editable optionsLocation }}
                                         </h3>
 
-                                        <h3>
-                                            Education
-                                        </h3>
+                                        <div class="hr-line-dashed"></div>
 
-                                        {{> tagList id="education" defaultItems=intialEducation}}
-                                        <!---->
-                                            <!--{{#each ProfileData.education}}-->
-                                        <!--<div style="border: 1px solid black; padding: 50px;">-->
-                                        <!--<h3>{{schoolName}}</h3>-->
-                                        <!--<h5>{{time}}</h5>-->
-                                        <!--<h5>{{program}}</h5>-->
-                                        <!--</div>-->
-                                            <!--{{/each}}-->
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-primary profile_info_box">
+                                                    <div class="panel-heading">
+                                                        Education
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>
+                                                        <ul>
+                                                            <li>Couses Taken
+                                                                <ul>
+                                                                {{#each ProfileData.profile.courseTaken}}
+                                                                    <li>{{this}}</li>
+                                                                {{/each}}
+                                                                    <li>{{> m_editable coursesTaken}}</li>
+                                                                </ul>
+                                                            </li>
 
-                                        <h3>
-                                            Works
-                                        </h3>
-                                        {{#each ProfileData.works}}
-                                            <div style="border: 1px solid black; padding: 50px;">
-                                                <h3>{{company}}</h3>
-                                                <h5>{{time}}</h5>
-                                                <h5>{{designation}}</h5>
+                                                            <li>Area of Interest
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.areaOfInterest}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable areaOfInterest}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Area of Works
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.areaOfWorks}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable areaOfWorks}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Internships
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.internships}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable internships}}</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        {{/each}}
+
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-primary profile_info_box">
+                                                    <div class="panel-heading">
+                                                        Works
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>
+                                                        <ul>
+                                                            <li>Works At
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.worksAt}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable worksAt}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Worked At
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.workedAt}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable workedAt}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Projects Completed
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.projectsCompleted}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable projectsCompleted}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Internships
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.workInternships}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable workInternships}}</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4">
+                                                <div class="panel panel-primary profile_info_box">
+                                                    <div class="panel-heading">
+                                                        Other Interests
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <p>
+                                                        <ul>
+                                                            <li>Events Attended
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.eventsAttended}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable eventsAttended}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Training Attended
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.trainingAttended}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable trainingAttended}}</li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li>Certification Achieved
+                                                                <ul>
+                                                                    {{#each ProfileData.profile.certificationAchieved}}
+                                                                        <li>{{this}}</li>
+                                                                    {{/each}}
+                                                                    <li>{{> m_editable certificationAchieved}}</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
-                                <div class="hr-line-dashed"></div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="panel panel-primary profile_info_box">
-                                            <div class="panel-heading">
-                                                Address
-                                            </div>
-                                            <div class="panel-body">
-                                                <p>
-                                                    <ul>
-                                                        <li>City</li>
-                                                        <li>State</li>
-                                                        <li>Country</li>
-                                                    </ul>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-lg-3">
-                                        <div class="panel panel-primary profile_info_box">
-                                            <div class="panel-heading">
-                                                Education
-                                            </div>
-                                            <div class="panel-body">
-                                                <p>
-                                                    <ul>
-                                                        <li>Couses Taken</li>
-                                                        <li>Area of Interest</li>
-                                                        <li>Area of Work</li>
-                                                        <li>Internships</li>
-                                                    </ul>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-lg-3">
-                                        <div class="panel panel-primary profile_info_box">
-                                            <div class="panel-heading">
-                                                Works
-                                            </div>
-                                            <div class="panel-body">
-                                                <p>
-                                                    <ul>
-                                                        <li>Works at</li>
-                                                        <li>Worked at</li>
-                                                        <li>Projects Completed</li>
-                                                        <li>Internships</li>
-                                                    </ul>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div class="panel panel-primary profile_info_box">
-                                            <div class="panel-heading">
-                                                Other Interests
-                                            </div>
-                                            <div class="panel-body">
-                                                <p>
-                                                    <ul>
-                                                        <li>Events attended</li>
-                                                        <li>Training attended</li>
-                                                        <li>Certification achieved</li>
-                                                    </ul>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
 
