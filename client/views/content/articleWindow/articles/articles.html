@@ -1,6 +1,5 @@
 <template name="articles">
     {{#each article}}
-        {{articleBody.author}}
         <div class="vertical-timeline-block">
             <div class="vertical-timeline-icon">
                 <a href="/profile/{{articleAuthor.slug}}"><img alt="image" class="img-circle img-responsive" src="images/profile_small.jpg"></a>
@@ -24,7 +23,7 @@
                     </span>
                     <br>
                     {{#each articleBody.tags}}
-                        <a style="color:black; margin-left: 5px;" href="#" class="btn btn-sm btn-primary">
+                        <a style="color:black; margin-left: 5px;" href="#" class="tag_button btn btn-sm btn-primary">
                             {{this}}
                         </a>
                     {{/each}}

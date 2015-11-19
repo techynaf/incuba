@@ -10,6 +10,10 @@ Template['articles'].helpers({
 
 
 Template['articles'].events({
+    'click .tag_button': function(event) {
+        event.preventDefault();
+        Session.set('tag',event.currentTarget.innerText);
+    },
 });
 
 function getArticles(){
