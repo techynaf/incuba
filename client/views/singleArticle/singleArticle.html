@@ -7,28 +7,36 @@
                         <!--Show edit options -->
                         <div class="ibox-content" style="margin-top: 2px !important;">
                             <div class="jumbotron">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        {{article.title}}
-                                    </div>
-                                </div>
-                                {{#each article.tags}}
-                                    <div class="panel panel-primary">
-                                        <div class="panel-body">
-                                            <span class="badge badge-primary">{{this}}</span>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                {{article.title}}
+                                            </div>
                                         </div>
-                                    </div>
-                                {{/each}}
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        {{article.summary}}
-                                    </div>
+                                        {{#each article.tags}}
+                                            <div class="panel panel-primary">
+                                                <div class="panel-body">
+                                                    <span class="badge badge-primary">{{this}}</span>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                {{article.summary}}
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-primary">
+                                            <div class="panel-body">
+                                                {{article.createdAt}}
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div>
+                                        <img class="img-responsive" src="#">
+                                    </div>  
                                 </div>
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        {{article.createdAt}}
-                                    </div>
-                                </div>
+                                
                                 <div class="panel panel-primary">
                                     <div class="panel-body">
                                         {{article.body}}
