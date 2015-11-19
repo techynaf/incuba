@@ -1,13 +1,44 @@
 <template name="singleArticle">
-    {{article.title}}
-    <p><b>Tags:</b></p>
-    {{#each article.tags}}
-        <p>{{this}}</p>
-    {{/each}}
-    <p>summary: {{article.summary}}</p>
-    <p>Created at: {{article.createdAt}}</p>
-
-    <div class="panel-body">
-        {{article.body}}
-    </div>
+    <body class="mini-navbar">
+        <div id="wrapper">
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!--Show edit options -->
+                        <div class="ibox-content" style="margin-top: 2px !important;">
+                            <div class="jumbotron">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{article.title}}
+                                    </div>
+                                </div>
+                                {{#each article.tags}}
+                                    <div class="panel panel-primary">
+                                        <div class="panel-body">
+                                            <span class="badge badge-primary">{{this}}</span>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{article.summary}}
+                                    </div>
+                                </div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{article.createdAt}}
+                                    </div>
+                                </div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{article.body}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </template>
