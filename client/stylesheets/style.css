@@ -77,6 +77,11 @@ a{
 	float: right;
 }
 
+.profile_info_box
+{
+	min-height: 250px;
+}
+
 
 
 
