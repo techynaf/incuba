@@ -1,87 +1,100 @@
 <template name="chatbox">
     <div class="col-lg-4" >
-        <div class="ibox float-e-margins"  id="ibox_chat" style="display:none">
+        <div class="ibox float-e-margins"  id="ibox_chat" style="position: fixed; display:none; width: 32%;">
             <div class="ibox-content" id="chat_border">
+                <div style="">
+                    <a href="#">
+                        <img width="33px" style="" id="backward" alt="image" class="img-circle" src="backward.png">
+                    </a>
+                </div>
                 <div class="chat-activity-list">
                     <div class="ibox float-e-margins" id="chat_box">
-                        {{#if messages}}
 
-                            {{backwardPressed}}
-                            <a href="#">
-                                <img width="33px" id="backward" alt="image" class="img-circle" src="backward.png">
-                            </a>
+                        {{backwardPressed}}
 
-                            {{#each messages}}
+                        <div style="">
+                            {{#if checkMeteorUser}}
+                                {{#if messages}}
+                                    {{#each messages}}
 
-                                {{#if isUserMessage type}}
-                                    <div class="chat-element">
-                                        <div class="row">
-                                            <div class="col-lg-10">
-                                                <div class="media-body">
-                                                    <strong>{{getCurrentUserName}}</strong>
-                                                    <p class="m-b-xs">
-                                                        {{body}}
-                                                    </p>
-                                                    <small class="text-muted">{{sentAt}}</small>
+                                        {{#if isUserMessage type}}
+                                            <div class="chat-element">
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        <div class="media-body">
+                                                            <strong>{{getCurrentUserName}}</strong>
+                                                            <p class="m-b-xs">
+                                                                {{body}}
+                                                            </p>
+                                                            <small class="text-muted">
+                                                                <span data-livestamp="{{sentAt}}"></span>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <a href="#" class="pull-left">
+                                                            <img alt="image" class="img-circle" src="/upload/{{getCurrentUserProfilePicture}}">
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-2">
-                                                <a href="#" class="pull-left">
-                                                    <img alt="image" class="img-circle" src="/upload/{{getCurrentUserProfilePicture}}">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {{/if}}
+                                        {{/if}}
 
-                                {{#if isMentorMessage type}}
-                                    <div class="chat-element">
-                                        <div class="row">
-                                            <div class="col-lg-2">
+                                        {{#if isMentorMessage type}}
+                                            <div class="chat-element">
+                                                <div class="row">
+                                                    <div class="col-lg-2">
+                                                        <a href="#" class="pull-left">
+                                                            <img alt="image" class="img-circle" src="images/profile_small.jpg">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-10">
+                                                        <div class="media-body">
+                                                            <strong>Mentor</strong>
+                                                            <p class="m-b-xs">
+                                                                {{body}}
+                                                            </p>
+                                                            <small class="text-muted">
+                                                                <span data-livestamp="{{sentAt}}"></span>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+
+                                        {{#if isSiteMessage type}}
+                                            <div class="chat-element">
                                                 <a href="#" class="pull-left">
                                                     <img alt="image" class="img-circle" src="images/profile_small.jpg">
                                                 </a>
-                                            </div>
-                                            <div class="col-lg-10">
                                                 <div class="media-body">
-                                                    <strong>Mentor</strong>
+                                                    <strong>Site</strong>
                                                     <p class="m-b-xs">
                                                         {{body}}
                                                     </p>
-                                                    <small class="text-muted">{{sentAt}}</small>
+                                                    <small class="text-muted">
+                                                        <span data-livestamp="{{sentAt}}"></span>
+                                                    </small>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        {{/if}}
+
+                                    {{/each}}
+                                {{else}}
+
+                                    Start chatting with a mentor.
+
                                 {{/if}}
-
-                                {{#if isSiteMessage type}}
-                                    <div class="chat-element">
-                                        <a href="#" class="pull-left">
-                                            <img alt="image" class="img-circle" src="images/profile_small.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <strong>Site</strong>
-                                            <p class="m-b-xs">
-                                                {{body}}
-                                            </p>
-                                            <small class="text-muted">{{sentAt}}</small>
-                                        </div>
-                                    </div>
-                                {{/if}}
-
-                            {{/each}}
-                        {{else}}
-
-                            Please login to chat.
-
-
-                        {{/if}}
+                            {{else}}
+                                Please login to chat.
+                            {{/if}}
+                        </div>
                     </div>
 
                     <div class="chat-form">
-                        {{#if messages}}
-                        <form role="form">
+                        {{#if checkMeteorUser}}
+                        <form role="form" autocomplete="off">
                             <div class="form-group" id="commentBox">
                                 <input autofocus name="message" class="form-control" placeholder="Type your message here...">
                             </div>

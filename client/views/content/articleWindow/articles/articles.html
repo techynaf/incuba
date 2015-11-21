@@ -25,7 +25,7 @@
                     </p>
 
                     <span class="vertical-date">
-                        <small>Posted at: {{articleDateTime}}</small>
+                        <small>Posted <span data-livestamp="{{articleBody.createdAt}}"></span></small>
                     </span>
                     <br>
                     {{#each articleBody.tags}}

@@ -25,6 +25,7 @@ callback-hook@1.0.4
 check@1.1.0
 chuangbo:cookie@1.1.0
 coffeescript@1.0.11
+copleykj:livestamp@1.1.7
 dburles:collection-helpers@1.0.4
 ddp@1.2.2
 ddp-client@1.2.1
@@ -38,6 +39,7 @@ ecmascript-runtime@0.2.6
 ejson@1.0.7
 email@1.0.8
 fastclick@1.0.7
+fortawesome:fontawesome@4.4.0
 geojson-utils@1.0.4
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -69,6 +71,7 @@ minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
 mobile-status-bar@1.0.6
+momentjs:moment@2.9.0
 mongo@1.1.3
 mongo-id@1.0.1
 natestrauser:animate-css@3.4.0
