@@ -3,7 +3,6 @@ Meteor.startup(function(){
     if ( Meteor.users.find().count() === 0 ) {
         var users = [
             {full_name: 'Admin', email: 'admin@incuba.com', password: 'password', profilePicture: "writer.png", slug: 'admin-las9gssjkgdn',roles: ['admin'] },
-            {full_name: 'Mentor', email: 'mentor@incuba.com', password: 'password',profilePicture: "mentor.png", slug: 'mentor-ndsgjk3920g', roles: ['mentor'] },
             {full_name: 'Writer',email: 'writer@incuba.com', password: 'password', profilePicture: "writer.png", slug: 'writer-lsfb1398r', roles: ['writer'] },
             {full_name: 'Sakib Hasan',email: 'ajobbalok22@gmail.com', password: '9134967', profilePicture: "avatar.gif", slug: 'sakib-hasan-lsfb1398r', roles: ['writer'] },
             {full_name: 'Sunny',email: 'sunny@incuba.com', password: 'password', profilePicture: "avatar.gif", slug: 'sunny-aosfn87g3ngs', roles: ['writer'] },
