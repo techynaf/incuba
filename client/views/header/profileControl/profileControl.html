@@ -5,7 +5,7 @@
             <li><a href="/"><i class="fa fa-diamond"></i><b style="color:black;font-size:18px">INCUBA</b></a></li>
 
             {{#if isInRole 'writer' 'default-group'}}
-                <li id="postArticle"><a style="color:black" href="/write">Post Article</a></li>
+                <li id="postArticle"><a style="color:black" data-toggle="modal" data-target=".articleModal">Post Article</a></li>
             {{/if}}
 
             <!--<li><a href="#" style="color:#18A689">Button 2</a></li>-->
@@ -55,6 +55,15 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 {{> register}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal fade articleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                {{> write_article}}
             </div>
         </div>
     </div>
