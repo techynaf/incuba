@@ -39,7 +39,9 @@ Template.write_article.events({
 
         });
         $("#ArticleSubmitMsg").show();
+        Session.set('getArticlePhoto', null);
     }
 });
 
 Session.set('ArticleSubmitMsg', null);
+Session.set('getArticlePhoto', null);
