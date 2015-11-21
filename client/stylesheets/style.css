@@ -1,3 +1,9 @@
+.modal-body{overflow-y: inherit;}
+
+.modal-open .dropdown-menu {
+    z-index: 2050;
+}
+
 .bootstrap-tagsinput{
 	display: block;
 	width: 100% !important;

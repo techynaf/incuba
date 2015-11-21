@@ -42,12 +42,14 @@ Template.write_article.events({
         $("#ArticleSubmitMsg").show();
         Session.set('getArticlePhoto', null);
         setTimeout(function(){
-            Router.go('/');
+            //Router.go('/');
+            $("#articleModal").modal('hide');
         }, 1000);
     }
 });
 
 Template.write_article.rendered = function(){
+    $('#tagSuggestion').typeahead();
     var data = Articles.find({},{fields:{tags:1}}).fetch();
     var mainArray = [];
     for(key in data){
