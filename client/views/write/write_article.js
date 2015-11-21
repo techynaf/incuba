@@ -16,21 +16,6 @@ Template.write_article.helpers({
 
         }
     },
-    tagSettings: function() {
-        return {
-            position: "top",
-            limit: 5,
-            rules: [
-                {
-                    token: '',
-                    collection: Articles,
-                    field: "tags",
-                    filter: { type: "autocomplete" },
-                    template: Template.userPill
-                }
-            ]
-        };
-    },
 });
 
 Template.write_article.events({
@@ -39,7 +24,8 @@ Template.write_article.events({
         var title = event.target.title.value;
         var body = event.target.body.value;
         var summary = event.target.summary.value;
-        var tags = event.target.tag.value.split(',');
+        //var tags = event.target.tag.value.split(',');
+        var tags = $("#tagSuggestion").tagsinput('items');
         var photo = event.target.articlePhoto.value;
 
         Articles.insert({
@@ -61,11 +47,24 @@ Template.write_article.events({
     }
 });
 
-Template.write_article.onRendered(function(){
-    $('[data-role="tagsinput"]').tagsinput({
-        
+Template.write_article.rendered = function(){
+    var data = Articles.find({},{fields:{tags:1}}).fetch();
+    var mainArray = [];
+    for(key in data){
+        var array = data[key].tags;
+        for(key3 in array){
+            mainArray.push(array[key3]);
+        }
+    }
+    mainArray = _.uniq(mainArray);
+    $('#tagSuggestion').tagsinput({
+        typeahead: {
+            source: mainArray
+        },
+        freeInput: true
     });
-});
+}
+
 
 Session.set('ArticleSubmitMsg', null);
 Session.set('getArticlePhoto', null);

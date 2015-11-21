@@ -1,3 +1,12 @@
+.bootstrap-tagsinput{
+	display: block;
+	width: 100% !important;
+}
+.label-info{
+	font-size: 13px !important;
+	font-family: inherit !important;
+}
+
 #chat_box{
 	height: 580px;
 	overflow: scroll;
