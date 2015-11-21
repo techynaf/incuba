@@ -40,6 +40,9 @@ Template.write_article.events({
         });
         $("#ArticleSubmitMsg").show();
         Session.set('getArticlePhoto', null);
+        setTimeout(function(){
+            Router.go('/');
+        }, 1000);
     }
 });
 
