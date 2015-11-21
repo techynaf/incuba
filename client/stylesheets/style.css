@@ -3,6 +3,10 @@
 	overflow: scroll;
 }
 
+.tag_button{
+	font-color:black;
+}
+
 #ibox_header{
 	background-color: #ecf0f1;
 	background-image: url("background.png");
@@ -24,6 +28,10 @@
 .profile_info_box
 {
 	min-height: 350px;
+}
+
+p{
+	font-size: 18px;
 }
 
 .jqDropZone {
@@ -3177,7 +3185,7 @@ code {
 	padding: 15px 20px 20px 20px;
 	border-color: #e7eaec;
 	border-image: none;
-	border-style: solid solid none;
+	/*border-style: solid solid none;*/
 	border-width: 1px 0px;
 }
 table.table-mail tr td {

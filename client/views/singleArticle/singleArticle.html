@@ -6,18 +6,18 @@
                     <div class="col-lg-12">
                         <!--Show edit options -->
                         <div class="ibox-content" style="margin-top: 2px !important;">
-                            <div class="jumbotron">
+                            <!-- <div class="jumbotron"> -->
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="ibox-content" style="min-height:300px">
-                                            <p>{{article.title}}</p>
-                                            <p>
+                                            <p><b>Title: </b>{{article.title}}</p>
+                                            <p><b>Tags: </b>
                                                 {{#each article.tags}}
                                                     <span class="badge badge-primary">{{this}}</span>
                                                 {{/each}}
                                             </p>
-                                            <p>{{article.summary}}</p>
-                                            <p>{{article.createdAt}}</p>
+                                            <p><b>Summary: </b>{{article.summary}}</p>
+                                            <p><b>Posted On:</b> {{article.createdAt}}</p>
                                         </div>
                                     </div>
                         
@@ -27,14 +27,14 @@
                                         </div>
                                     </div>  
                                 </div>
-                                <div class="row" style="margin-top:1%">
-                                    <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12" style="margin-top: 1%">
                                         <div class="ibox-content">
-                                            {{article.body}}
+                                            <p>{{article.body}}</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
