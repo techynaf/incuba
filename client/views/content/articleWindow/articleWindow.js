@@ -19,7 +19,7 @@ Template['articleWindow'].helpers({
             $("#forward").hide();
             $('#ibox_chat').show();
             $('#ibox_article').removeClass('col-lg-11').addClass('col-lg-8');
-            //$('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
+            $('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
         }
     },
 });

@@ -27,6 +27,10 @@ Template['chatbox'].helpers({
         var photo = Meteor.users.findOne({_id: Meteor.user()._id}).profile.profilePicture;
         return photo;
     },
+
+    checkMeteorUser: function () {
+        return Meteor.user();
+    }
 });
 
 
