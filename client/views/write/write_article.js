@@ -16,6 +16,21 @@ Template.write_article.helpers({
 
         }
     },
+    tagSettings: function() {
+        return {
+            position: "top",
+            limit: 5,
+            rules: [
+                {
+                    token: '',
+                    collection: Articles,
+                    field: "tags",
+                    filter: { type: "autocomplete" },
+                    template: Template.userPill
+                }
+            ]
+        };
+    },
 });
 
 Template.write_article.events({
@@ -44,6 +59,12 @@ Template.write_article.events({
             Router.go('/');
         }, 1000);
     }
+});
+
+Template.write_article.onRendered(function(){
+    $('[data-role="tagsinput"]').tagsinput({
+        
+    });
 });
 
 Session.set('ArticleSubmitMsg', null);
