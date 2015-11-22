@@ -197,61 +197,161 @@
                                 <div class="jumbotron">
                                     <div class="row">
                                         <div class="col-lg-2">
-                                            <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
-                                            <br>
-                                            <br>
+                                            {{#if ProfileData.profile.profilePicture}}
+                                                <img class="img-thumbnail img-responsive" src="/upload/{{ProfileData.profile.profilePicture}}">
+                                                <br>
+                                                <br>
+                                            {{/if}}
                                         </div>
                                         <div class="col-lg-10">
                                             <h1>{{ProfileData.profile.full_name}}</h1>
 
                                             <h3>
-                                                {{ProfileData.profile.age}}, {{ProfileData.profile.sex}}, {{ProfileData.profile.location}}
-                                            </h3>
+                                                {{#if ProfileData.profile.age}}
+                                                    {{ProfileData.profile.age}} ,
+                                                {{/if}}
 
-                                            <h3>
+                                                {{#if ProfileData.profile.sex}}
+                                                    {{ProfileData.profile.sex}} ,
+                                                {{/if}}
+
+                                                {{#if ProfileData.profile.location}}
+                                                    {{ProfileData.profile.location}}
+                                                {{/if}}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="panel panel-primary profile_info_box">
+                                            <div class="panel-heading" style="text-align:center">
                                                 Education
-                                            </h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                <ul>
+                                                    <li>Couses Taken
+                                                        <ul>
+                                                            {{#each ProfileData.profile.courseTaken}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
 
-                                            {{> tagList id="education" defaultItems=intialEducation}}
-                                            <!---->
-                                                <!--{{#each ProfileData.education}}-->
-                                            <!--<div style="border: 1px solid black; padding: 50px;">-->
-                                            <!--<h3>{{schoolName}}</h3>-->
-                                            <!--<h5>{{time}}</h5>-->
-                                            <!--<h5>{{program}}</h5>-->
-                                            <!--</div>-->
-                                                <!--{{/each}}-->
+                                                    <li>Area of Interest
+                                                        <ul>
+                                                            {{#each ProfileData.profile.areaOfInterest}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
 
-                                            <h3>
+                                                    <li>Area of Works
+                                                        <ul>
+                                                            {{#each ProfileData.profile.areaOfWorks}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Internships
+                                                        <ul>
+                                                            {{#each ProfileData.profile.internships}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="panel panel-primary profile_info_box">
+                                            <div class="panel-heading" style="text-align:center">
                                                 Works
-                                            </h3>
-                                            {{#each ProfileData.works}}
-                                                <div style="border: 1px solid black; padding: 50px;">
-                                                    <h3>{{company}}</h3>
-                                                    <h5>{{time}}</h5>
-                                                    <h5>{{designation}}</h5>
-                                                </div>
-                                            {{/each}}
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                <ul>
+                                                    <li>Works At
+                                                        <ul>
+                                                            {{#each ProfileData.profile.worksAt}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Worked At
+                                                        <ul>
+                                                            {{#each ProfileData.profile.workedAt}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Projects Completed
+                                                        <ul>
+                                                            {{#each ProfileData.profile.projectsCompleted}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Internships
+                                                        <ul>
+                                                            {{#each ProfileData.profile.workInternships}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="panel panel-primary profile_info_box">
+                                            <div class="panel-heading" style="text-align:center">
+                                                Other Interests
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                <ul>
+                                                    <li>Events Attended
+                                                        <ul>
+                                                            {{#each ProfileData.profile.eventsAttended}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Training Attended
+                                                        <ul>
+                                                            {{#each ProfileData.profile.trainingAttended}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+
+                                                    <li>Certification Achieved
+                                                        <ul>
+                                                            {{#each ProfileData.profile.certificationAchieved}}
+                                                                <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <!-- Photo Upload Modal -->
-                                <div id="photoUploadModal" class="modal fade photoUploadModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title text-center" id="myModalLabel">Upload Profile Photo</h4>
-                                            </div>
-                                            <div id="mymodal" class="modal-body">
-                                                {{> upload_bootstrap fileTypes='.jpg,.png,.gif' callbacks=profilePictureUpload }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--<h3>{{ProfileData.age}}, {{ProfileData.sex}}, {{ProfileData.location}}</h3>-->
                             </div>
 
                         {{/if}}

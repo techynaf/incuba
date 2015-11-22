@@ -34,7 +34,12 @@ Template['chatboxMentor'].helpers({
 
     'isSiteMessage': function (type) {
         return type === "site"
-    }
+    },
+    getCurrentChattingUser: function(){
+        if(Session.get("user")){
+            return Meteor.users.find({_id: Session.get("user")}).fetch()[0];
+        };
+    },
 });
 
 Template['chatboxMentor'].events({
@@ -69,6 +74,9 @@ function getUniqueUsers(){
 }
 
 function getMessage(userId){
+    setTimeout(function() {
+        $('#chat_box').scrollTop($('#chat_box')[0].scrollHeight);
+    }, 50);
     var message = Messages.find({  $or: [ { to: userId }, { from: userId}]}).fetch();
     return message;
 }

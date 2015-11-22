@@ -44,8 +44,11 @@ Template.write_article.events({
         setTimeout(function(){
             //Router.go('/');
             $("#articleModal").modal('hide');
+            $('#articleForm').trigger("reset");
+            $("#ArticleSubmitMsg").hide();
+            Meteor._reload.reload();
         }, 1000);
-    }
+    },
 });
 
 Template.write_article.rendered = function(){

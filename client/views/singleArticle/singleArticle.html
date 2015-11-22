@@ -6,50 +6,54 @@
                     <div class="col-lg-12">
                         <!--Show edit options -->
                         <div class="ibox-content" style="margin-top: 2px !important;">
-                            <!-- <div class="jumbotron"> -->
-                                <div class="row">
+                            <div class="row">
 
-                                    {{ownArticle}}
-                                    {{#if checkOwner}}
-                                        {{#if isInRole 'admin' 'default-group'}}
-                                            <a id="deleteButton" class="btn btn-danger">Delete</a>
-                                        {{else}}
-                                            <a id="deleteButton" class="btn btn-danger">Delete</a>
-                                        {{/if}}
+                                {{ownArticle}}
+                                {{#if checkOwner}}
+                                    {{#if isInRole 'admin' 'default-group'}}
+                                        <a id="deleteButton" class="btn btn-danger">Delete</a>
                                     {{else}}
-                                        {{#if isInRole 'admin' 'default-group'}}
-                                                <a id="deleteButton" class="btn btn-danger">Delete</a>
-                                        {{/if}}
+                                        <a id="deleteButton" class="btn btn-danger">Delete</a>
                                     {{/if}}
+                                {{else}}
+                                    {{#if isInRole 'admin' 'default-group'}}
+                                            <a id="deleteButton" class="btn btn-danger">Delete</a>
+                                    {{/if}}
+                                {{/if}}
 
 
-                                    <div class="col-lg-6">
-                                        <div class="ibox-content" style="min-height:300px">
-                                            <p><b>Title: </b>{{article.title}}</p>
-                                            <p><b>Tags: </b>
-                                                {{#each article.tags}}
-                                                    <span class="badge badge-primary">{{this}}</span>
-                                                {{/each}}
-                                            </p>
-                                            <p><b>Summary: </b>{{article.summary}}</p>
-                                            <p><b>Posted On:</b> {{article.createdAt}}</p>
-                                        </div>
-                                    </div>
-                        
-                                    <div class="col-lg-6">
-                                        <div class="ibox-content" align="center" style="min-height:300px">
-                                            <img width="70%" class="img-responsive" src="../images/p_big1.jpg">
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12" style="margin-top: 1%">
-                                        <div class="ibox-content">
+                                <div class="col-lg-6">
+                                    <div class="ibox-content" style="min-height:300px">
+                                        <h1><b>{{article.title}}</b></h1>
+                                        {{#each article.tags}}
+                                            <span class="badge badge-primary">{{this}}</span>
+                                        {{/each}}
+                                        <br>
+                                        <b>Posted </b> <span data-livestamp="{{article.createdAt}}"></span>
+                                        <br>
+                                        <br>
+                                        <h3>Summary: </h3>
+                                        <blockquote>
+                                            <p>{{article.summary}}</p>
+                                            <!--<footer><b>Posted </b> <span data-livestamp="{{article.createdAt}}"></span></footer>-->
+                                        </blockquote>
+
+
+
+
+                                        <blockquote>
                                             <p>{{article.body}}</p>
-                                        </div>
+                                        </blockquote>
+
                                     </div>
                                 </div>
-                            <!-- </div> -->
+
+                                <div class="col-lg-6">
+                                    <div class="ibox-content" align="center" style="min-height:300px">
+                                        <img width="70%" class="img-responsive" src="/upload/{{article.photo}}">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

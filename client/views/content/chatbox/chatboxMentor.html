@@ -5,27 +5,29 @@
             <div class="ibox-content" id="chat_border"><div>
                 <div class="chat-activity-list">
                     <div class="ibox float-e-margins" id="chat_box">
-                        <a href="#">
-                            <img width="33px" id="backward" alt="image" class="img-circle" src="img/backward.png">
-                        </a>
 
                         {{#each messages}}
 
                             {{#if isUserMessage type}}
+
                                 <div class="chat-element">
+
                                     <div class="row">
+                                        USER
                                         <div class="col-lg-10">
                                             <div class="media-body">
-                                                <strong>{{getCurrentUserName}}</strong>
+                                                <strong>{{getCurrentChattingUser.profile.full_name}}</strong>
                                                 <p class="m-b-xs">
                                                     {{body}}
                                                 </p>
-                                                <small class="text-muted">{{sentAt}}</small>
+                                                <small class="text-muted">
+                                                    <span data-livestamp="{{sentAt}}"></span>
+                                                </small>
                                             </div>
                                         </div>
                                         <div class="col-lg-2">
                                             <a href="#" class="pull-left">
-                                                <img alt="image" class="img-circle" src="/upload/{{getCurrentUserProfilePicture}}">
+                                                <img alt="image" class="img-circle" src="/upload/{{getCurrentChattingUser.profile.profilePicture}}">
                                             </a>
                                         </div>
                                     </div>
@@ -34,15 +36,23 @@
 
                             {{#if isMentorMessage type}}
                                 <div class="chat-element">
-                                    <a href="#" class="pull-left">
-                                        <img alt="image" class="img-circle" src="img/a2.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <strong>Mentor</strong>
-                                        <p class="m-b-xs">
-                                            {{body}}
-                                        </p>
-                                        <small class="text-muted">{{sentAt}}</small>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="/upload/mentor.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="media-body">
+                                                <strong>Mentor</strong>
+                                                <p class="m-b-xs">
+                                                    {{body}}
+                                                </p>
+                                                <small class="text-muted">
+                                                    <span data-livestamp="{{sentAt}}"></span>
+                                                </small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             {{/if}}
@@ -57,7 +67,9 @@
                                         <p class="m-b-xs">
                                             {{body}}
                                         </p>
-                                        <small class="text-muted">{{sentAt}}</small>
+                                        <small class="text-muted">
+                                            <span data-livestamp="{{sentAt}}"></span>
+                                        </small>
                                     </div>
                                 </div>
                             {{/if}}
@@ -68,10 +80,9 @@
                 </div>
             </div>
                 <div class="chat-form">
-
-                    <form role="form">
+                    <form role="form" autocomplete="off">
                         <div class="form-group" id="commentBox">
-                            <input name="message"  class="form-control" placeholder="Type your message here...">
+                            <input autofocus name="message"  class="form-control" placeholder="Type your message here...">
                         </div>
                     </form>
                 </div>
