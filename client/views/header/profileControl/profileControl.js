@@ -34,6 +34,10 @@ Template['profileControl'].events({
     'click #postArticle': function(event){
         //event.preventDefault();
         console.log("posting article");
+    },
+    'click #logoClicked': function(event){
+        event.preventDefault();
+        Router.go('/');
+        Meteor._reload.reload();
     }
-
 });

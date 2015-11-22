@@ -6,9 +6,6 @@ Template['articles'].helpers({
     'article' : function () {
         return getArticles();
     },
-    checkPhoto: function(){
-
-    },
 });
 
 
@@ -20,13 +17,10 @@ Template['articles'].events({
 });
 
 function getArticles(){
-    console.log('from getArticles '+Session.get('tag'));
-
     if(Session.get('searchArticle')){
         var articles=Articles.find({title: { $regex: Session.get('searchArticle'), $options: 'i' }});
         return addAuthorToArticle(articles);
     }else if(Session.get('tag')){
-        console.log("here");
         var articles= Articles.find({
             tags: Session.get('tag')
         });
@@ -35,7 +29,6 @@ function getArticles(){
         Meteor.call("findArticleWithAuthor", function(err, data){
             return data;
         });
-
         var articles = Articles.find({},{sort:{createdAt:-1}});
         return addAuthorToArticle(articles);
     }
@@ -62,7 +55,6 @@ function addAuthorToArticle(articles){
             }
         }
     );
-    console.log(finalAricles);
     return finalAricles;
 }
 

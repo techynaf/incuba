@@ -2,7 +2,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="/"><i class="fa fa-diamond"></i><b style="color:black;font-size:18px">INCUBA</b></a></li>
+            <li><a id="logoClicked"><i class="fa fa-diamond"></i><b style="color:black;font-size:18px">INCUBA</b></a></li>
 
             {{#if isInRole 'writer' 'default-group'}}
                 <li id="postArticle"><a style="color:black" data-toggle="modal" data-target=".articleModal">Post Article</a></li>
