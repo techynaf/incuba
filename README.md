@@ -43,8 +43,8 @@ Developers: Gulshan Jubaed Prince, Sakib Hasan, Tahsin Alam Tamim, Shehabul Hoss
   * Delete Article (self)
 
 * Mentor:
-  *Update Profile
-  *Chat with Users
+  * Update Profile
+  * Chat with Users
 
 * Admin:
   * Delete Article
