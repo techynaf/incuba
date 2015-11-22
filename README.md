@@ -46,8 +46,8 @@ Developers: Gulshan Jubaed Prince, Sakib Hasan, Tahsin Alam Tamim, Shehabul Hoss
   *Update Profile
   *Chat with Users
 
-*Admin:
-  *Delete Article
+* Admin:
+  * Delete Article
 
 ## Known Bugs:
 * Profile should have multiple interest, work, education.
