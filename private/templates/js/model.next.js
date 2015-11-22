@@ -1,6 +1,6 @@
-// { "path" : "models/__modelName__.next.js" }
+ //{ "path" : "models/__modelName__.next.js" }
 
-export var __modelName__ = new Mongo.Collection('__modelName__');
+ var __modelName__ = new Mongo.Collection('__modelName__');
 
 __modelName__.attachSchema(
   new SimpleSchema({

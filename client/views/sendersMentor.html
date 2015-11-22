@@ -1,0 +1,18 @@
+<template name="sendersMentor">
+
+    <div class="col-lg-7" id="ibox_article">
+        <ul class="nav nav-pills nav-stacked">
+            {{#each users}}
+                {{#if isCurrentWindow user._id}}
+                    <li role="presentation">
+                        <a class="user" name="user" id={{user._id}}>{{this.user.profile.full_name}} <span class="badge">0</span></a>
+                    </li>
+                {{else}}
+                    <li role="presentation"><a class="user" name="user" id={{user._id}}>{{this.user.profile.full_name}} <span class="badge">{{this.count}}</span></a></li>
+                {{/if}}
+
+            {{/each}}
+        </ul>
+    </div>
+
+</template>

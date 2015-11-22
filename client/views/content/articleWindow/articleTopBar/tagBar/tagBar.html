@@ -1,21 +1,15 @@
 <template name="tagBar">
-    <style>
+     <span id="all_tag_button">
+        <a style="opacity:0.7;" href="#" class="tag_button btn btn-primary">
+            all
+        </a>
+    </span>
 
-        /*TODO:: please move this to proper css file. Thanks.*/
-
-        ul#menu {
-            padding: 0;
-        }
-
-        ul#menu li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-    </style>
-    <ul id="menu">
-    {{#each tags}}
-        <li><a href="/html/default.asp">{{tag}}</a></li>
+    {{#each tags}}  
+        <span>
+            <a style="opacity:0.7;" href="#" class="tag_button btn btn-primary">
+                {{this}}
+            </a>
+        </span>
     {{/each}}
-    </ul>
 </template>

@@ -1,14 +1,17 @@
 <template name="basicLayout">
-    <div>
-        {{> header}}
-    </div>
+    <body class="mini-navbar">
+        <div id="wrapper">
+            <div id="page-wrapper">
+                
+                {{> header}}
 
-    <div>
-        {{> content}}
-    </div>
+                
+                {{> yield}}
 
-    <div>
-        {{> footer}}
-    </div>
 
+                {{> footer}}
+
+            </div>
+        </div>
+    </body>
 </template>
