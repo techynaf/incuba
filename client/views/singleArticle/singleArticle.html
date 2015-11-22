@@ -8,6 +8,21 @@
                         <div class="ibox-content" style="margin-top: 2px !important;">
                             <!-- <div class="jumbotron"> -->
                                 <div class="row">
+
+                                    {{ownArticle}}
+                                    {{#if checkOwner}}
+                                        {{#if isInRole 'admin' 'default-group'}}
+                                            <a id="deleteButton" class="btn btn-danger">Delete</a>
+                                        {{else}}
+                                            <a id="deleteButton" class="btn btn-danger">Delete</a>
+                                        {{/if}}
+                                    {{else}}
+                                        {{#if isInRole 'admin' 'default-group'}}
+                                                <a id="deleteButton" class="btn btn-danger">Delete</a>
+                                        {{/if}}
+                                    {{/if}}
+
+
                                     <div class="col-lg-6">
                                         <div class="ibox-content" style="min-height:300px">
                                             <p><b>Title: </b>{{article.title}}</p>
