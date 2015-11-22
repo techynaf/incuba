@@ -38,6 +38,6 @@ Template['profileControl'].events({
     'click #logoClicked': function(event){
         event.preventDefault();
         Router.go('/');
-        Meteor._reload.reload();
+        //Meteor._reload.reload();
     }
 });
