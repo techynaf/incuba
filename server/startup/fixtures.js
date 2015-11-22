@@ -41,5 +41,4 @@ Meteor.startup(function(){
         uploadDir: process.env.PWD + '/.uploads/',
         checkCreateDirectories: true //create the directories for you
     });
-
 });
