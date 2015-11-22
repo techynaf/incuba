@@ -31,7 +31,7 @@ Developers: Gulshan Jubaed Prince, Sakib Hasan, Tahsin Alam Tamim, Shehabul Hoss
 * Browse by Tag
 
 ## Capabilities:
-*User:
+* User:
   * Read article
   * Chat with mentor
   * Update profile
